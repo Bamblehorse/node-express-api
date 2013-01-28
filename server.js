@@ -37,10 +37,30 @@ require('./config/registerPartials.js')(app, express);
 // dat route
 require('./config/routes.js')(app, express);
 
+var uristring = 
+  process.env.MONGODB_URI || 
+  process.env.MONGOLAB_URI || 
+  'mongodb://localhost/soft338';
+
+// Ensure safe writes
+var mongoOptions = { user: "heroku_app11371005", account: "heroku_app11371005" ,db: { safe: true }};
+
+// Connect
+mongoose.connect(uristring, mongoOptions, function (err, res) {
+  if (err) { 
+    console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+  } else {
+    console.log ('Succeeded connected to: ' + uristring);
+  }
+});
+
 // start connection to database
 mongoose.connect('mongodb://localhost/SOFT338');
 
 //start application
-app.listen(8888);
+var port = process.env.PORT || 3000;
+app.listen(port, function() {
+  console.log("Listening on " + port);
+});
 
 console.log('Application started..');
