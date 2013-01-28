@@ -2,10 +2,14 @@
   "name": "SOFT338",
   "description": "NodeJS, Express & MongoDB API",
   "author": "Adam Sheridan <adam.sheridan@students.plymouth.ac.uk",
+  "version": "0.0.1",
   "dependencies": {
     "express": ">= 3.0.6",
     "hbs": ">=2.0.1",
     "mongoose": ">=3.5.4"
   },
-  "engine": "node 0.8.17"
+  "engines": {
+  	"node": "0.8.17",
+  	"npm": "1.1.65"
+  }
 }
