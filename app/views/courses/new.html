@@ -2,12 +2,49 @@
 
 <h1>New Course</h1>
 
-<form method="POST" action="/courses/">
+<form class="" method="POST" action="/v1/courses/">
 	<label for="name">Name:</label><input type="text" name="name" /><br />
 	<label for="code">Code:</label><input type="text" name="code" /><br />
-	<label for="faculty">Faculty:</label><input type="text" name="faculty" /><br />
-	<label for="school">School:</label><input type="text" name="school" /><br />
-	<label for="level">Level:</label><input type="text" name="level" /><br />
+	<label for="faculty">Faculty:</label>
+	<select name="faculty">
+		<option value="Plymouth Business School">Plymouth Business School</option>
+		<option value="Faculty of Arts">Faculty of Arts</option>
+		<option value="Faculty of Health, Education and Society">Faculty of Health, Education and Society</option>
+		<option value="Faculty of Science and Technology">Faculty of Science and Technology</option>
+	</select><br />
+	<label for="school">School:</label>
+	<select name="school">
+		<option value="Plymouth Law School">Plymouth Law School</option>
+		<option value="School of Architecture, Design and Environment">School of Architecture, Design and Environment</option>
+		<option value="School of Art and Media">School of Art and Media</option>
+		<option value="School of Biomedical and Biological Sciences">School of Biomedical and Biological Sciences</option>
+		<option value="School of Computing and Mathematics">School of Computing and Mathematics</option>
+		<option value="School of Education">School of Education</option>
+		<option value="School of Geography, Earth and Environmental Sciences">School of Geography, Earth and Environmental Sciences</option>
+		<option value="School of Health Professions">School of Health Professions</option>
+		<option value="School of Humanities and Performing Arts">School of Humanities and Performing Arts</option>
+		<option value="School of Management">School of Management</option>
+		<option value="School of Marine Science and Engineering">School of Marine Science and Engineering</option>
+		<option value="School of Nursing and Midwifery">School of Nursing and Midwifery</option>
+		<option value="School of Psychology">School of Psychology</option>
+		<option value="School of Social Science and Social Work">School of Social Science and Social Work</option>
+		<option value="School of Tourism and Hospitality">School of Tourism and Hospitality</option>
+	</select><br />
+	<label for="level">Level:</label>
+	<select name="level">
+			<option value="BA (hons)">BA (hons)</option>
+			<option value="BSc (hons)">BSc (hons)</option>
+			<option value="BEd (hons)">BEd (hons)</option>
+			<option value="BEng (hons)">BEng (hons)</option>
+			<option value="BMus (hons)">BMus (hons)</option>
+			<option value="FdA">FdA</option>
+			<option value="FdSc">FdSc</option>
+			<option value="LLM">LLM</option>
+			<option value="MA">MA</option>
+			<option value="MSc">MSc</option>
+			<option value="MPhil">MPhil</option>
+			<option value="MRes">MRes</option>
+	</select><br />
 	<button type="submit">Submit</button>
 </form>
 

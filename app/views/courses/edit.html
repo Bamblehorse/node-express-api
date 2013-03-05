@@ -1,0 +1,40 @@
+{{>_header}}
+
+<h1>Edit Course</h1>
+
+<form method="PUT" action="/v1/courses/">
+	<label for="id">ID:</label><input type="text" name="id" value="{{id}}" readonly /><br />
+	<label for="name">Name:</label><input type="text" name="name" value="{{name}}" /><br />
+	<label for="code">Code:</label><input type="text" name="code" value="{{code}}" /><br />
+	<label for="faculty">Faculty:</label><input type="text" name="faculty" value="{{faculty}}" /><br />
+	<label for="school">School:</label><input type="text" name="school" value="{{school}}" /><br />
+	<label for="level">Level:</label><input type="text" name="level" value="{{level}}" /><br />
+	<button type="submit">Submit</button>
+</form>
+
+<script>
+	var form = $('form'),
+		submit = $('button[type="submit"]');
+
+	submit.click(function(e){
+			e.preventDefault();
+			console.log('submit intercepted');
+			var url = 'http://localhost:3000' + form.attr('action') + $('input[name=id]').val(),
+				data = form.serialize();
+			console.log(url, data);
+			$.ajax({
+				url: url,
+				type: 'PUT',
+				data: data,
+				success: function (data, textStatus, jqXHR) {
+					console.log('data sent');
+				},
+				error: function(jqXHR, textStatus, error) {
+					console.log('error');
+					console.log(textStatus);
+					console.log(jqXHR)
+				}
+			});
+		});
+</script>
+{{>_footer}}

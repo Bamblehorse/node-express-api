@@ -1,0 +1,681 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"err",
+				"handleErrors"
+			],
+			[
+				"Successu",
+				"Successful"
+			],
+			[
+				"e",
+				"e"
+			],
+			[
+				"a",
+				"artistname"
+			],
+			[
+				"librar",
+				"libraryPath"
+			],
+			[
+				"res",
+				"result"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"no",
+				"no-repeat"
+			],
+			[
+				"authorize",
+				"authorize-button"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "server.js",
+			"settings":
+			{
+				"buffer_size": 2007,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "config/routes.js",
+			"settings":
+			{
+				"buffer_size": 2353,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/controllers/CourseController.js",
+			"settings":
+			{
+				"buffer_size": 4307,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/controllers/ModuleController.js",
+			"settings":
+			{
+				"buffer_size": 2357,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "config/utils.js",
+			"settings":
+			{
+				"buffer_size": 1262,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 1823,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/views/modules/edit.html",
+			"settings":
+			{
+				"buffer_size": 1209,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/controllers/ApplicationController.js",
+			"settings":
+			{
+				"buffer_size": 77,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/models/ModuleModel.js",
+			"settings":
+			{
+				"buffer_size": 371,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Build PRCO303",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/xampp/htdocs/SOFT338/app/views/docs/index.html",
+		"/C/xampp/htdocs/SOFT338/app/models/ModuleModel.js",
+		"/C/xampp/htdocs/SOFT338/app/views/courses/edit.html",
+		"/C/xampp/htdocs/SOFT338/backup.json",
+		"/C/xampp/htdocs/SOFT338/app/controllers/ModuleController.js",
+		"/C/xampp/htdocs/SOFT338/app/views/index.html",
+		"/C/xampp/htdocs/SOFT338/app/views/modules/new.html",
+		"/C/xampp/htdocs/SOFT338/app/controllers/ApplicationController.js",
+		"/C/xampp/htdocs/SOFT338/app/models/CourseModel.js",
+		"/C/xampp/htdocs/SOFT338/app/views/users/new.html",
+		"/C/xampp/htdocs/SOFT338/app/views/courses/new.html",
+		"/C/Users/Adam/Downloads/kcr.pls",
+		"/C/xampp/htdocs/SOFT338/app/views/partials/_footer.html",
+		"/C/xampp/htdocs/deadlines/.git/config",
+		"/C/xampp/htdocs/SOFT338/README.md",
+		"/C/xampp/htdocs/SOFT338/config/utils.js",
+		"/C/xampp/htdocs/SOFT338/app/views/partials/_header.html",
+		"/C/xampp/htdocs/SOFT338/.procfile",
+		"/C/xampp/htdocs/SOFT338/package.json",
+		"/C/xampp/htdocs/SOFT338/.gitignore",
+		"/C/xampp/htdocs/SOFT338/config/registerPartials.js",
+		"/C/xampp/htdocs/SOFT338/app/models/UserModel.js",
+		"/C/xampp/htdocs/SOFT338/app/models/CourseModel",
+		"/C/xampp/htdocs/PRCO303/node_modules/sndlsadnsad_node-vlc/package.json",
+		"/C/xampp/htdocs/PRCO303/app/views/releases/edit.html",
+		"/C/xampp/htdocs/PRCO303/app/views/releases/new.html",
+		"/C/xampp/htdocs/PRCO303/app/models/ReleaseModel.js",
+		"/C/xampp/htdocs/PRCO303/app/controllers/ArtistController.js",
+		"/C/xampp/htdocs/PRCO303/app/views/library/artist.html",
+		"/C/xampp/htdocs/PRCO303/app/views/partials/_footer.html",
+		"/C/xampp/htdocs/PRCO303/public/js/vendor/historyjs/History.md",
+		"/C/xampp/htdocs/PRCO303/app/controllers/LibraryController.js",
+		"/C/xampp/htdocs/PRCO303/config/routes.js",
+		"/C/xampp/htdocs/PRCO303/app/views/songs/edit.html",
+		"/C/xampp/htdocs/PRCO303/app/views/songs/new.html",
+		"/C/xampp/htdocs/PRCO303/app/models/SongModel.js",
+		"/C/xampp/htdocs/PRCO303/app/controllers/SongController.js",
+		"/C/xampp/htdocs/PRCO303/app/views/artists/edit.html",
+		"/C/xampp/htdocs/PRCO303/public/index.html",
+		"/C/xampp/htdocs/PRCO303/app/views/songs/delete.html",
+		"/C/xampp/htdocs/PRCO303/app/views/releases/delete.html",
+		"/C/xampp/htdocs/PRCO303/app/controllers/ReleaseController.js",
+		"/C/xampp/htdocs/PRCO303/app/models/ArtistModel.js",
+		"/C/xampp/htdocs/PRCO303/app/views/artists/delete.html",
+		"/C/xampp/htdocs/PRCO303/app/views/artists/new.html",
+		"/C/xampp/htdocs/PRCO303/app/views/partials/_header.html",
+		"/C/xampp/htdocs/PRCO303/app/views/newArtist.html",
+		"/C/xampp/htdocs/PRCO303/public/js/main.js",
+		"/C/xampp/htdocs/PRCO303/datamodels",
+		"/C/xampp/htdocs/PRCO303/app/views/library/index.html",
+		"/C/xampp/htdocs/PRCO303/app/views/partials/_sidebarArtists.html",
+		"/C/xampp/htdocs/PRCO303/config/registerPartials.js",
+		"/C/xampp/htdocs/PRCO303/prototypes/upnp/upnp.js",
+		"/C/xampp/htdocs/PRCO303/config/batch.js",
+		"/C/xampp/htdocs/PRCO303/config/shell.js",
+		"/C/xampp/htdocs/PRCO303/app/controllers/BrowseController.js",
+		"/C/xampp/htdocs/PRCO303/app/controllers/BrowseController",
+		"/C/xampp/htdocs/PRCO303/app/views/library/rescan.html",
+		"/C/xampp/htdocs/PRCO303/app/views/browse/index.html",
+		"/C/xampp/htdocs/PRCO303/app/views/partials/_menu.html",
+		"/C/xampp/htdocs/PRCO303/server - Copy.js",
+		"/C/xampp/htdocs/PRCO303/app/views/browse/playlists.html",
+		"/C/xampp/htdocs/PRCO303/app/views/library/playlists.html",
+		"/C/xampp/htdocs/PRCO303/app/views/library/genres.html",
+		"/C/Users/Adam/AppData/Local/Temp/Rar$DI22.008/id3.js",
+		"/C/xampp/htdocs/PRCO303/app/views/_header.html",
+		"/C/xampp/htdocs/PRCO303/apiroutes",
+		"/C/xampp/htdocs/PRCO303/app/views/test.html",
+		"/C/xampp/htdocs/PRCO303/config/config.js",
+		"/C/xampp/htdocs/PRCO303/public/mylibrary.html",
+		"/C/xampp/htdocs/PRCO303/src/sass/main.scss",
+		"/C/xampp/htdocs/PRCO303/src/sass/640.scss",
+		"/C/xampp/htdocs/PRCO303/node_modules/mongojs/README.md",
+		"/C/xampp/htdocs/PRCO303/node_modules/express/Readme.md",
+		"/C/xampp/htdocs/PRCO303/models/ArtistModel.js",
+		"/C/Users/Adam/AppData/Local/Temp/Rar$DI82.800/MemberModel.js",
+		"/C/xampp/htdocs/PRCO303/package.json",
+		"/C/Program Files/nodejs/nodejsvars.bat",
+		"/C/xampp/htdocs/node-mvc/config/routes.js",
+		"/C/xampp/htdocs/AINT304/public/search.html",
+		"/C/xampp/htdocs/PRCO303/public/.htaccess",
+		"/C/xampp/htdocs/PRCO303/public/js/vendor/quantize.js",
+		"/C/xampp/htdocs/PRCO303/public/js/plugins.js",
+		"/C/xampp/htdocs/PRCO303/public/js/vendor/colorThief.js",
+		"/C/Users/Adam/AppData/Local/Temp/Rar$DI36.248/stylesheet.css",
+		"/C/xampp/htdocs/PRCO303/src/sass/style.scss",
+		"/C/xampp/htdocs/PRCO303/src/build.sh",
+		"/C/Users/Adam/Downloads/color-thief-master/sass/app.sass",
+		"/C/Users/Adam/Downloads/color-thief-master/README.markdown",
+		"/C/xampp/htdocs/PRCO303/src/build.bat",
+		"/C/xampp/htdocs/PRCO303/src/sass/768.scss",
+		"/C/xampp/htdocs/PRCO303/src/sass/boilerplate.scss",
+		"/C/xampp/htdocs/PRCO303/src/sass/640",
+		"/C/xampp/htdocs/PRCO303/public/css/normalize.css",
+		"/C/xampp/htdocs/PRCO303/public/css/main.css",
+		"/C/xampp/htdocs/PRCO303/prototypes/node-upnp/package.json",
+		"/C/xampp/htdocs/PRCO303/prototypes/node-upnp/test.js",
+		"/C/xampp/htdocs/plym/exchange.plymouth.ac.uk -  home .htm",
+		"/C/xampp/htdocs/mrbs-1.2.5/web/view_entry.php",
+		"/C/xampp/htdocs/mrbs-1.2.5/web/config.inc.php",
+		"/C/Program Files (x86)/VideoLAN/VLC/lua/http/.hosts",
+		"/C/Users/Adam/Downloads/SOFT331Week07.docx",
+		"/C/xampp/htdocs/AINT304/AINT304.sublime-project",
+		"/C/xampp/htdocs/PRCO303/PRCO303.sublime-project",
+		"/C/xampp/htdocs/PRCO303/index.html",
+		"/C/Users/Adam/Documents/NetBeansProjects/Blog/config.ru",
+		"/C/Users/Adam/Desktop/recrack.bat",
+		"/C/xampp/htdocs/AINT304/src/sass/640.scss",
+		"/C/xampp/htdocs/AINT304/src/sass/main.scss",
+		"/C/xampp/htdocs/AINT304/public/css/main.css",
+		"/C/xampp/htdocs/AINT304/public/index.html",
+		"/C/xampp/htdocs/AINT304/src/sass/768.scss",
+		"/C/xampp/htdocs/AINT304/public/results.html",
+		"/C/xampp/htdocs/AINT304/src/sass/style.scss",
+		"/C/xampp/htdocs/AINT304/src/sass/boilerplate.scss",
+		"/C/xampp/htdocs/AINT304/src/sass/helpers.scss",
+		"/C/Users/Adam/.gitconfig",
+		"/C/xampp/htdocs/AINT304/public/images/preview.png",
+		"/C/xampp/htdocs/AINT304/public/css/normalize.min.css",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/C/Users/Adam/Downloads/jira_backup.sql",
+		"/C/Users/Adam/Desktop/My Basket - Tesco Groceries_files/standard",
+		"/C/xampp/htdocs/uni/soft335/week1/js/app.js",
+		"/C/Users/Adam/Desktop/dir.rb",
+		"/C/xampp/htdocs/uni/soft335/week1/index.html",
+		"/C/xampp/htdocs/plymouthUG/alpha/js/app.js",
+		"/C/xampp/php/php.ini",
+		"/C/xampp/htdocs/plymouthUG/.gitignore"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"true",
+			"History",
+			"res",
+			"data",
+			"sendFile",
+			"index",
+			"170px",
+			"    \n",
+			";\n",
+			"                    $",
+			"#player .track",
+			".search-result:nth-child(even) {",
+			"thubnail",
+			"main-",
+			"search-result",
+			"thubnail",
+			".thubnail",
+			"thubnail",
+			"{\n",
+			"search",
+			".search-submit",
+			"search-submit",
+			"input",
+			"===============\n",
+			"#add",
+			"height",
+			"20px",
+			"text",
+			"NORMAL",
+			"1200px",
+			"cta",
+			"three-col-thumb",
+			"var data",
+			"service-page",
+			">",
+			"imagettftext",
+			">",
+			"reveal",
+			"	-",
+			".transitions",
+			"$.fancybox.transitions",
+			"onCleanup",
+			"3",
+			">",
+			"\"; ?>",
+			"hgroup",
+			"doverlay",
+			"></",
+			" background 500ms ease-in;\n    -moz-transition: background 500ms ease-in;\n    -o-transition: background 500ms ease-in;\n    transition: background 500ms ease-in;",
+			"text",
+			"home",
+			"dubsilo",
+			"feature-list",
+			"hot pi",
+			"font-family",
+			"phone-number",
+			"h3",
+			"h4",
+			"a4",
+			"ul"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"thumbnail",
+			"three-col-heading-thumb",
+			"three-col-thumb"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "server.js",
+					"settings":
+					{
+						"buffer_size": 2007,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								251,
+								251
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "config/routes.js",
+					"settings":
+					{
+						"buffer_size": 2353,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								878,
+								878
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 90.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/controllers/CourseController.js",
+					"settings":
+					{
+						"buffer_size": 4307,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4129,
+								4129
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2283.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/controllers/ModuleController.js",
+					"settings":
+					{
+						"buffer_size": 2357,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1869,
+								1869
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 729.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "config/utils.js",
+					"settings":
+					{
+						"buffer_size": 1262,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								763,
+								763
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "README.md",
+					"settings":
+					{
+						"buffer_size": 1823,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								573,
+								573
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 90.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/views/modules/edit.html",
+					"settings":
+					{
+						"buffer_size": 1209,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								783,
+								783
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/controllers/ApplicationController.js",
+					"settings":
+					{
+						"buffer_size": 77,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								66,
+								66
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/models/ModuleModel.js",
+					"settings":
+					{
+						"buffer_size": 371,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 32.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 109.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 215.0,
+	"status_bar_visible": true
+}

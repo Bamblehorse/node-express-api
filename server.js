@@ -2,7 +2,8 @@ var express = require('express'),
 	http = require('http'),
 	mongoose = require('mongoose'),
 	fs = require('fs'),
-	hbs = require('hbs');
+	hbs = require('hbs'),
+  passport = require('passport');
 
 // init app
 var app = express();
@@ -21,6 +22,13 @@ app.configure(function(){
     app.use('/js', express.static(__dirname + '/public/js'));
     app.use('/fonts', express.static(__dirname + '/public/fonts'));
 
+    //passport
+    app.use(express.cookieParser());
+    app.use(express.bodyParser());
+    app.use(express.session({ secret: 'keyboard cat' }));
+    app.use(passport.initialize());
+    app.use(passport.session());
+
     console.log('views: ', app.get('views'));
 
 });
@@ -37,6 +45,7 @@ require('./config/registerPartials.js')(app, express);
 // dat route
 require('./config/routes.js')(app, express);
 
+/*
 var uristring = 
   process.env.MONGODB_URI || 
   process.env.MONGOLAB_URI || 
@@ -53,7 +62,7 @@ mongoose.connect(uristring, mongoOptions, function (err, res) {
     console.log ('Succeeded connected to: ' + uristring);
   }
 });
-
+*/
 // start connection to database
 mongoose.connect('mongodb://localhost/SOFT338');
 
