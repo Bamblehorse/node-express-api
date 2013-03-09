@@ -40,6 +40,11 @@ exports.create = function(req, res){
 	obj.save(function(err, docs){
 		if (err) { console.log(err) } else {
 			console.log('Inserted:', obj.name);
+			res.render('modules/new', {
+				locals: {
+					message: 'Successfully created!'
+				}
+			});
 		}
 	});
 
