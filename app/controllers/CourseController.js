@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
 	Model = mongoose.model('Course'),
 	Module = mongoose.model('Module'),
 	User = mongoose.model('User'),
-	passport = require('passport'),
+	//passport = require('passport'),
 	check = require('validator').check,
 	sanitize = require('validator').sanitize;
 

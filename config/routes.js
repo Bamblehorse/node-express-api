@@ -4,7 +4,7 @@ var application = require('../app/controllers/ApplicationController'),
 	modules = require('../app/controllers/ModuleController'),
 	users = require('../app/controllers/UserController'),
 	apikey = require('../app/controllers/APIKeyController'),
-	passport = require('passport'),
+	//passport = require('passport'),
 	TwitterStrategy = require('passport-twitter').Strategy;
 
 module.exports = function (app, express) {
