@@ -6,7 +6,10 @@
   "dependencies": {
     "express": ">= 3.0.6",
     "hbs": ">=2.0.1",
-    "mongoose": ">=3.5.4"
+    "mongoose": ">=3.5.4",
+    "mongoose-validator": ">=0.2.1",
+    "sha1": ">=1.0.1",
+    "validator": ">=0.4.25"
   },
   "engines": {
   	"node": "0.8.14",
