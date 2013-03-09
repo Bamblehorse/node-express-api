@@ -8,8 +8,6 @@ var express = require('express'),
 // init app
 var app = express();
 
-/* 
-
 // dat configuration
 app.configure(function(){
 
@@ -46,12 +44,6 @@ require('./config/registerPartials.js')(app, express);
 
 // dat route
 require('./config/routes.js')(app, express);
-
-*/
-
-app.get('/', function(req, res){
-  res.send('Hello');
-});
 
 /*
 var uristring = 
