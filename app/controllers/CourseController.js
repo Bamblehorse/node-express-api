@@ -71,7 +71,10 @@ exports.show = function (req, res) {
 	} 
 
 	Model.find({ _id: req.params.id }, utils.getFields(req.query), function(err, docs){
-		if (docs.length === 0) { 
+		if (err) { 
+			console.log(err);
+			utils.handleErrors(err, res);
+		} else if (docs.length === 0) { 
 			utils.handleErrors({ name: 'NoContent' }, res) 
 		} else {
 			res.writeHead(200, 'OK', {

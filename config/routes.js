@@ -81,6 +81,6 @@ module.exports = function (app, express) {
 	});
 
 	//docs
-	//app.get('/v1/docs/errors/:errorid', application.errors);
+	app.get('/v1/docs/errors/:errorid', application.errors);
 
 }

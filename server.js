@@ -42,7 +42,7 @@ require('./config/routes.js')(app, express);
 var uristring = 
   process.env.MONGODB_URI || 
   process.env.MONGOLAB_URI || 
-  'mongodb://localhost/soft338';
+  'mongodb://localhost/SOFT338';
 /*
 // Ensure safe writes
 var mongoOptions = { user: "heroku_app11371005", account: "heroku_app11371005" ,db: { safe: true }};

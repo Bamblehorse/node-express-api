@@ -1,9 +1,5 @@
 {{>_header}}
 
-<div class="container">
-
-	<h1>SOFT338 - University API</h1>
-
 	<!-- <a href="/auth/twitter" class="btn btn-primary btn-medium">Authenticate with Twitter</a>
 	<br /> -->
 
@@ -17,7 +13,7 @@
 
 	<h2>Base URL</h2>
 	<p>All URLs referenced in the documentation have the following base:</p>
-	<div class="well">http://soft338.heroku.com/v1/</div>
+	<div class="well baseurl">http://localhost:3000/v1</div>
 
 	<h3>Authentication</h3>
 	<p>The API will only accept requests from authenticated users, this means you <b>always</b> need to supply an apikey parameter.
@@ -26,11 +22,45 @@
 	<h3>Select fields</h3>
 	<div class="well">/courses/5133b2b8257e63484a000001<b>?fields=name,school,code</b></div>
 
-	<h2>Example Request</h2>
-	<div class="well">/courses/5133b2b8257e63484a000001?apikey=6403cc12ebaf45056ab3e924fce62064851de819&fields=name,school,code</div>
+	<div class="testable">
 
-	<pre></pre>
+		<h2>Example Request</h2>
+		<div class="well url">/courses/5133b2b8257e63484a000001?apikey=6403cc12ebaf45056ab3e924fce62064851de819&amp;fields=name,school,code</div>
 
+		<button type="button" class="go">See Result</button>
+		
+		<div class="result hide">
+
+			<h4>Headers</h4>
+			<pre class="headers"></pre>
+
+			<h4>Output</h4>
+			<pre class="output"></pre>
+
+		</div>
+
+	</div>
+
+	<div class="testable">
+
+		<h2>Example Error</h2>
+		<div class="well url">/courses/5133b2b8257e63484a000002</div>
+
+		<button type="button" class="go">See Result</button>
+		
+		<div class="result hide">
+
+			<h4>Headers</h4>
+			<pre class="headers"></pre>
+
+			<h4>Output</h4>
+			<pre class="output"></pre>
+
+		</div>
+
+	</div>
+
+<!-- 
 
 	<ul>
 	<li>GET 	/courses/ 				courses.index</li>
@@ -65,8 +95,52 @@
 	<li>DELETE 	/users/:id 				users.destroy</li>
 	</ul>
 
-	
+	-->
 
-</div>
+<script>
+
+$(document).ready(function(){
+
+	var baseurl = $('.baseurl').text();
+
+	// results demo
+	$('.testable .go').toggle(function(e){
+		e.preventDefault();
+		var $self = $(this);
+		var url = $self.siblings('.url').text(),
+			$headers = $self.siblings('.result').children('.headers'),
+			$output = $self.siblings('.result').children('.output'),
+			$result = $self.siblings('.result');
+
+		console.log('click', url, $headers, $output);
+
+		$.ajax({
+			url: baseurl+url,
+			type: 'GET',
+			success: function(data, textStatus, xhr) {
+				console.log('ajax success', data, $result, $headers);
+				$result.removeClass('hide').addClass('show');
+				$self.text('Hide Result');
+				$output.text(JSON.stringify(data, undefined, 2));
+				$headers.text(xhr.getAllResponseHeaders());
+				$headers.append(xhr.status, ' ');
+				$headers.append(xhr.statusText);
+			},
+			error: function(err) {
+				console.log(err);
+			}
+		});
+
+	}, function(){
+		var $self = $(this),
+			$result = $self.siblings('.result');
+
+		$result.removeClass('show').addClass('hide');
+		$self.text('Show Result');
+	});
+
+});
+
+</script>
 
 {{>_footer}}
