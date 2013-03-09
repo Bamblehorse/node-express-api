@@ -3,9 +3,9 @@ var application = require('../app/controllers/ApplicationController'),
 	courses = require('../app/controllers/CourseController'),
 	modules = require('../app/controllers/ModuleController'),
 	users = require('../app/controllers/UserController'),
-	apikey = require('../app/controllers/APIKeyController'),
+	apikey = require('../app/controllers/APIKeyController');
 	//passport = require('passport'),
-	TwitterStrategy = require('passport-twitter').Strategy;
+	//TwitterStrategy = require('passport-twitter').Strategy;
 
 module.exports = function (app, express) {
 
