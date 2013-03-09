@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"valida",
+				"validateName"
+			],
+			[
 				"err",
 				"handleErrors"
 			],
@@ -48,18 +52,18 @@
 	"buffers":
 	[
 		{
-			"file": "server.js",
+			"file": "config/routes.js",
 			"settings":
 			{
-				"buffer_size": 2007,
+				"buffer_size": 2817,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "config/routes.js",
+			"file": "app/controllers/APIKeyController.js",
 			"settings":
 			{
-				"buffer_size": 2353,
+				"buffer_size": 1001,
 				"line_ending": "Windows"
 			}
 		},
@@ -67,7 +71,7 @@
 			"file": "app/controllers/CourseController.js",
 			"settings":
 			{
-				"buffer_size": 4307,
+				"buffer_size": 5206,
 				"line_ending": "Windows"
 			}
 		},
@@ -75,7 +79,15 @@
 			"file": "app/controllers/ModuleController.js",
 			"settings":
 			{
-				"buffer_size": 2357,
+				"buffer_size": 2653,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/controllers/UserController.js",
+			"settings":
+			{
+				"buffer_size": 3845,
 				"line_ending": "Windows"
 			}
 		},
@@ -83,7 +95,7 @@
 			"file": "config/utils.js",
 			"settings":
 			{
-				"buffer_size": 1262,
+				"buffer_size": 2183,
 				"line_ending": "Windows"
 			}
 		},
@@ -91,7 +103,7 @@
 			"file": "README.md",
 			"settings":
 			{
-				"buffer_size": 1823,
+				"buffer_size": 1874,
 				"line_ending": "Windows"
 			}
 		},
@@ -104,10 +116,18 @@
 			}
 		},
 		{
-			"file": "app/controllers/ApplicationController.js",
+			"file": "app/views/docs/index.html",
 			"settings":
 			{
-				"buffer_size": 77,
+				"buffer_size": 2383,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/models/CourseModel.js",
+			"settings":
+			{
+				"buffer_size": 834,
 				"line_ending": "Windows"
 			}
 		},
@@ -115,7 +135,15 @@
 			"file": "app/models/ModuleModel.js",
 			"settings":
 			{
-				"buffer_size": 371,
+				"buffer_size": 714,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/models/UserModel.js",
+			"settings":
+			{
+				"buffer_size": 722,
 				"line_ending": "Windows"
 			}
 		}
@@ -144,19 +172,23 @@
 	},
 	"file_history":
 	[
-		"/C/xampp/htdocs/SOFT338/app/views/docs/index.html",
+		"/C/xampp/htdocs/SOFT338/app/models/UserModel.js",
 		"/C/xampp/htdocs/SOFT338/app/models/ModuleModel.js",
+		"/C/xampp/htdocs/SOFT338/app/views/partials/_footer.html",
+		"/C/xampp/htdocs/SOFT338/app/controllers/ApplicationController.js",
+		"/C/xampp/htdocs/SOFT338/app/models/APIKeyModel.js",
+		"/C/xampp/htdocs/SOFT338/server.js",
+		"/C/xampp/htdocs/SOFT338/app/views/docs/index.html",
+		"/C/xampp/htdocs/SOFT338/Procfile",
 		"/C/xampp/htdocs/SOFT338/app/views/courses/edit.html",
 		"/C/xampp/htdocs/SOFT338/backup.json",
 		"/C/xampp/htdocs/SOFT338/app/controllers/ModuleController.js",
 		"/C/xampp/htdocs/SOFT338/app/views/index.html",
 		"/C/xampp/htdocs/SOFT338/app/views/modules/new.html",
-		"/C/xampp/htdocs/SOFT338/app/controllers/ApplicationController.js",
 		"/C/xampp/htdocs/SOFT338/app/models/CourseModel.js",
 		"/C/xampp/htdocs/SOFT338/app/views/users/new.html",
 		"/C/xampp/htdocs/SOFT338/app/views/courses/new.html",
 		"/C/Users/Adam/Downloads/kcr.pls",
-		"/C/xampp/htdocs/SOFT338/app/views/partials/_footer.html",
 		"/C/xampp/htdocs/deadlines/.git/config",
 		"/C/xampp/htdocs/SOFT338/README.md",
 		"/C/xampp/htdocs/SOFT338/config/utils.js",
@@ -165,7 +197,6 @@
 		"/C/xampp/htdocs/SOFT338/package.json",
 		"/C/xampp/htdocs/SOFT338/.gitignore",
 		"/C/xampp/htdocs/SOFT338/config/registerPartials.js",
-		"/C/xampp/htdocs/SOFT338/app/models/UserModel.js",
 		"/C/xampp/htdocs/SOFT338/app/models/CourseModel",
 		"/C/xampp/htdocs/PRCO303/node_modules/sndlsadnsad_node-vlc/package.json",
 		"/C/xampp/htdocs/PRCO303/app/views/releases/edit.html",
@@ -268,10 +299,7 @@
 		"/C/Users/Adam/Desktop/My Basket - Tesco Groceries_files/standard",
 		"/C/xampp/htdocs/uni/soft335/week1/js/app.js",
 		"/C/Users/Adam/Desktop/dir.rb",
-		"/C/xampp/htdocs/uni/soft335/week1/index.html",
-		"/C/xampp/htdocs/plymouthUG/alpha/js/app.js",
-		"/C/xampp/php/php.ini",
-		"/C/xampp/htdocs/plymouthUG/.gitignore"
+		"/C/xampp/htdocs/uni/soft335/week1/index.html"
 	],
 	"find":
 	{
@@ -289,6 +317,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			");\n",
+			"String",
+			"Striong",
+			"courses",
+			"fields",
+			"query.fields",
 			"true",
 			"History",
 			"res",
@@ -369,30 +403,29 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 8,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "server.js",
+					"file": "config/routes.js",
 					"settings":
 					{
-						"buffer_size": 2007,
+						"buffer_size": 2817,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								251,
-								251
+								731,
+								731
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -402,99 +435,18 @@
 				},
 				{
 					"buffer": 1,
-					"file": "config/routes.js",
+					"file": "app/controllers/APIKeyController.js",
 					"settings":
 					{
-						"buffer_size": 2353,
+						"buffer_size": 1001,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								878,
-								878
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 90.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/controllers/CourseController.js",
-					"settings":
-					{
-						"buffer_size": 4307,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4129,
-								4129
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2283.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/controllers/ModuleController.js",
-					"settings":
-					{
-						"buffer_size": 2357,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1869,
-								1869
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 729.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "config/utils.js",
-					"settings":
-					{
-						"buffer_size": 1262,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								763,
-								763
+								687,
+								687
 							]
 						],
 						"settings":
@@ -509,19 +461,127 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "README.md",
+					"buffer": 2,
+					"file": "app/controllers/CourseController.js",
 					"settings":
 					{
-						"buffer_size": 1823,
+						"buffer_size": 5206,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								573,
-								573
+								4315,
+								4443
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/controllers/ModuleController.js",
+					"settings":
+					{
+						"buffer_size": 2653,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2634,
+								2634
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 450.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/controllers/UserController.js",
+					"settings":
+					{
+						"buffer_size": 3845,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3199,
+								3199
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1653.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "config/utils.js",
+					"settings":
+					{
+						"buffer_size": 2183,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1933,
+								1933
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 654.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "README.md",
+					"settings":
+					{
+						"buffer_size": 1874,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1834,
+								1874
 							]
 						],
 						"settings":
@@ -535,7 +595,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "app/views/modules/edit.html",
 					"settings":
 					{
@@ -562,19 +622,46 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "app/controllers/ApplicationController.js",
+					"buffer": 8,
+					"file": "app/views/docs/index.html",
 					"settings":
 					{
-						"buffer_size": 77,
+						"buffer_size": 2383,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								66,
-								66
+								1158,
+								1158
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 120.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "app/models/CourseModel.js",
+					"settings":
+					{
+						"buffer_size": 834,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								368,
+								368
 							]
 						],
 						"settings":
@@ -588,19 +675,45 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 10,
 					"file": "app/models/ModuleModel.js",
 					"settings":
 					{
-						"buffer_size": 371,
+						"buffer_size": 714,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								149,
+								149
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "app/models/UserModel.js",
+					"settings":
+					{
+						"buffer_size": 722,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								325,
+								325
 							]
 						],
 						"settings":

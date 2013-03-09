@@ -1,7 +1,9 @@
 var mongoose = require('mongoose'),
 	utils = require('../../config/utils.js'),
+	apikey = require('../controllers/APIKeyController.js'),
 	Model = mongoose.model('Course'),
 	Module = mongoose.model('Module'),
+	User = mongoose.model('User'),
 	passport = require('passport'),
 	check = require('validator').check,
 	sanitize = require('validator').sanitize;
@@ -11,7 +13,9 @@ exports.index = function (req, res) {
 
 	//passport.authenticate('token', {session: false});
 
-	Model.find({}, function(err, docs){
+	//utils.getQueryParams(req);
+
+	Model.find({}, utils.getFields(req.query), function(err, docs){
 
 		if (docs.length === 0) { 
 			utils.handleErrors({ name: 'NoContent' }, res) 
@@ -21,7 +25,7 @@ exports.index = function (req, res) {
 				"Access-Control-Allow-Origin": "*"
 			});
 
-			res.end(JSON.stringify(docs));
+			res.end(utils.prepJSON(docs));
 		}
 	});
 }
@@ -62,15 +66,11 @@ exports.show = function (req, res) {
 		res.writeHead(200, 'OK', {
 			"Content-Type": "application/json"
 		});
-		res.end(JSON.stringify(e));
+		res.end(utils.prepJSON(e));
 		return false;
 	} 
 
-	if (!utils.objEmpty(req.query)) {
-		console.log(req.query.fields);
-	}
-
-	Model.find({ _id: req.params.id }, function(err, docs){
+	Model.find({ _id: req.params.id }, utils.getFields(req.query), function(err, docs){
 		if (docs.length === 0) { 
 			utils.handleErrors({ name: 'NoContent' }, res) 
 		} else {
@@ -78,7 +78,7 @@ exports.show = function (req, res) {
 			"Content-Type": "application/json",
 			"Access-Control-Allow-Origin": "*"
 			});
-			res.end(JSON.stringify(docs));
+			res.end(utils.prepJSON(docs));
 		}
 	}); 
 
@@ -94,7 +94,7 @@ exports.edit = function (req, res) {
 		res.writeHead(200, 'OK', {
 			"Content-Type": "application/json"
 		});
-		res.end(JSON.stringify(e));
+		res.end(utils.prepJSON(e));
 		return false;
 	}
 
@@ -122,7 +122,7 @@ exports.update = function (req, res) {
 		res.writeHead(200, 'OK', {
 			"Content-Type": "application/json"
 		});
-		res.end(JSON.stringify(e));
+		res.end(utils.prepJSON(e));
 		return false;
 	} 
 
@@ -158,13 +158,13 @@ exports.destroy = function (req, res) {
 				console.log(err);
 			} else {
 				console.log('removed: ', req.params.id);
+				res.writeHead(200, 'OK', {
+					"Content-Type": "text/html"
+				});
+				res.end('Deleted Successfully');
 			}
 		});
 	});
-}
-
-exports.getUsers = function () {
-
 }
 
 // modules with courseid
@@ -177,13 +177,13 @@ exports.modules = function (req, res) {
 		res.writeHead(200, 'OK', {
 			"Content-Type": "application/json"
 		});
-		res.end(JSON.stringify(e));
+		res.end(utils.prepJSON(e));
 		return false;
 	} 
 
 	var courseid = req.params.id;
 
-	Module.find({ courses:courseid }, function(err, docs){
+	Module.find({ courses:courseid }, utils.getFields(req.query), function(err, docs){
 		if (err) { 
 			console.log(err);
 			utils.handleErrors(err, res);
@@ -194,12 +194,39 @@ exports.modules = function (req, res) {
 			res.writeHead(200, 'OK', {
 				"Content-Type": "application/json"
 			});
-			res.end(JSON.stringify(docs));
+			res.end(utils.prepJSON(docs));
 		}
 	});
 }
 
 // users with courseid
-exports.users = function () {
+exports.users = function (req, res) {
+	try {
+		check(req.params.id, 'Please enter a valid ID').len(24);
+	} catch (e) {
+		console.log(e);
+		console.log('id is '+req.params.id.length);
+		res.writeHead(200, 'OK', {
+			"Content-Type": "application/json"
+		});
+		res.end(utils.prepJSON(e));
+		return false;
+	} 
 
+	var courseid = req.params.id;
+
+	User.find({ courseid:courseid }, utils.getFields(req.query), function(err, docs){
+		if (err) { 
+			console.log(err);
+			utils.handleErrors(err, res);
+		} else if (docs.length === 0){
+			utils.handleErrors({ name: 'NoContent' }, res);
+		} else {
+			console.log(docs);
+			res.writeHead(200, 'OK', {
+				"Content-Type": "application/json"
+			});
+			res.end(utils.prepJSON(docs));
+		}
+	});
 }

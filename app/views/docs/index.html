@@ -4,13 +4,34 @@
 
 	<h1>SOFT338 - University API</h1>
 
-	<a href="/auth/twitter" class="btn btn-primary btn-medium">Authenticate with Twitter</a>
-	<br />
+	<!-- <a href="/auth/twitter" class="btn btn-primary btn-medium">Authenticate with Twitter</a>
+	<br /> -->
+
+	<h2>Generate API Key</h2>
+	<form id="genAPIKey" method="POST" action="/apikey">
+		<input type="email" name="email" placeholder="Email Address" />
+		<button id="submit" type="submit" class="btn btn-medium btn-primary">Generate</button>
+	</form>
+	<div id="output"></div>
 
 
 	<h2>Base URL</h2>
 	<p>All URLs referenced in the documentation have the following base:</p>
-	<div class="well">http://soft338.heroku.com/v1/</div><br />
+	<div class="well">http://soft338.heroku.com/v1/</div>
+
+	<h3>Authentication</h3>
+	<p>The API will only accept requests from authenticated users, this means you <b>always</b> need to supply an apikey parameter.
+	<div class="well">/courses/5133b2b8257e63484a000001<b>?apikey=6403cc12ebaf45056ab3e924fce62064851de819</b></div>
+
+	<h3>Select fields</h3>
+	<div class="well">/courses/5133b2b8257e63484a000001<b>?fields=name,school,code</b></div>
+
+	<h2>Example Request</h2>
+	<div class="well">/courses/5133b2b8257e63484a000001?apikey=6403cc12ebaf45056ab3e924fce62064851de819&fields=name,school,code</div>
+
+	<pre></pre>
+
+
 	<ul>
 	<li>GET 	/courses/ 				courses.index</li>
 	<li>GET 	/courses/new 			courses.new -> new view</li>
@@ -44,8 +65,7 @@
 	<li>DELETE 	/users/:id 				users.destroy</li>
 	</ul>
 
-	<h3>Select fields</h3>
-	<div class="well">/courses/5133b2b8257e63484a000001<b>?fields=name,school,code</b></div>
+	
 
 </div>
 

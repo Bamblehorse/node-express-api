@@ -58,3 +58,5 @@ api.domain.com/v1/courses
 
 - Add version 1,2,3 not decimal. Could imply API is updating often which is bad
 - Add creation date / other attributes to JSON return, created_at? 
+
+API Key: 6403cc12ebaf45056ab3e924fce62064851de819

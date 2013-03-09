@@ -1,5 +1,32 @@
 <script src="/js/plugins.js"></script>
 <script src="/js/main.js"></script>
 
+<script>
+
+$(document).ready(function(e){
+
+	$('#genAPIKey #submit').click(function(e){
+		e.preventDefault();
+		console.log('oioi');
+		
+		$.ajax({
+			type: 'POST',
+			url: '/v1/apikey',
+			data: $('#genAPIKey').serialize(),
+			success: function(d){
+				console.log(d);
+				$('#output').html('<div class="well">Your API Key is: <code>'+d+'</code></div>');
+			},
+			error: function(e) {
+				console.log('error', e);
+			}
+		});
+
+	});
+
+});
+
+</script>
+
 </body>
 </html>

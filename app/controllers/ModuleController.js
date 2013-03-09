@@ -15,7 +15,7 @@ exports.index = function (req, res) {
 				"Content-Type": "application/json",
 				"Access-Control-Allow-Origin": "*"
 			});
-			res.end(JSON.stringify(docs));
+			res.end(utils.prepJSON(docs));
 		}
 	});
 }
@@ -55,7 +55,7 @@ exports.show = function (req, res) {
 		res.writeHead(200, 'OK', {
 			"Content-Type": "application/json"
 		});
-		res.end(JSON.stringify(e));
+		res.end(utils.prepJSON(e));
 		return false;
 	}
 	
@@ -69,7 +69,7 @@ exports.show = function (req, res) {
 			"Content-Type": "application/json",
 			"Access-Control-Allow-Origin": "*"
 			});
-			res.end(JSON.stringify(docs));
+			res.end(utils.prepJSON(docs));
 		}
 	});
 	
@@ -84,7 +84,7 @@ exports.edit = function (req, res) {
 		res.writeHead(200, 'OK', {
 			"Content-Type": "application/json"
 		});
-		res.end(JSON.stringify(e));
+		res.end(utils.prepJSON(e));
 		return false;
 	}
 	
@@ -111,5 +111,17 @@ exports.update = function (req, res) {
 }
 // destroy
 exports.destroy = function (req, res) {
-
+	Model.findById(req.params.id, function(err, doc){
+		doc.remove(function(err){
+			if (err) {
+				console.log(err);
+			} else {
+				console.log('removed: ', req.params.id);
+				res.writeHead(200, 'OK', {
+					"Content-Type": "text/html"
+				});
+				res.end('Deleted Successfully');
+			}
+		});
+	});
 }

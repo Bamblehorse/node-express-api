@@ -9,32 +9,24 @@ exports.handleErrors = function(err, res){
 		case 'ValidationError':
 			err.code = 400;
 			err.more_info = errorUrl+err.code;
+			err.errors = JSON.stringify(err.errors);
 			console.log(err);
 			res.writeHead(err.code, err, {
 				"Content-Type": "text/html"
 			});
-			res.end(err);
+			res.end(JSON.stringify(err));
 		break;
 
-		//mongoose error
+		//mongodb casting error
 		case 'CastError':
-			err.message = 'Internal Server Error';
-			if (err.value.length != 24) {
-				err.message = "Invalid ID"
-			}
-			err.code = 500;
+			err.code = 400;
 			err.more_info = errorUrl+err.code;
-
-			// surpress internal error data for security, 
-			// developers don't need this information.
-			delete err.type;
-			delete err.path;
 
 			console.log(err);
 			res.writeHead(err.code, err, {
 				"Content-Type": "text/html"
 			});
-			res.end(err);
+			res.end(JSON.stringify(err));
 		break;
 
 		case 'NoContent':
@@ -45,12 +37,64 @@ exports.handleErrors = function(err, res){
 			res.writeHead(err.code, err, {
 				"Content-Type": "text/html"
 			});
-			res.end(err);
+			res.end(JSON.stringify(err));
+		break;
+
+		case 'Unauthorized':
+			err.message = 'Authentication is required, please check your API Key is correct.';
+			err.code = 401;
+			err.more_info = errorUrl+err.code;
+			console.log(err);
+			res.writeHead(err.code, err, {
+				"Content-Type": "text/html"
+			});
+			res.end(JSON.stringify(err));
 		break;
 	}
 
 }
 
-exports.objEmpty = function (obj) {
-	 return (Object.getOwnPropertyNames(obj).length === 0);
+exports.getFields = function (query) {
+
+	console.log('getFields');
+	
+	function objEmpty(obj) {
+		//console.log('obj is', obj);
+		return (Object.getOwnPropertyNames(obj).length === 0);
+	}
+
+	if (!objEmpty(query)) {
+		if (query.fields) {
+			console.log('fields exist');
+			var s = query.fields.split(','),
+			fields = {}; //default 
+			for (var i = 0; i < s.length; i++) {
+				var key = s[i];
+				fields[key] = 1;
+			}
+			return fields;
+		} else {
+			console.log('no fields supplied');
+		}
+	} else {
+		var fields = { __v: 0 }
+		return fields;
+	}
+}
+
+exports.prepJSON = function (data){
+	return JSON.stringify(data);
+}
+
+exports.getQueryParams = function (req){
+	function objEmpty(obj) {
+		//console.log('obj is', obj);
+		return (Object.getOwnPropertyNames(obj).length === 0);
+	}
+	
+	if (!objEmpty(req.query)) {
+		console.log(req.query);
+	} else {
+		return false;
+	}
 }
