@@ -2,8 +2,8 @@ var express = require('express'),
 	http = require('http'),
 	mongoose = require('mongoose'),
 	fs = require('fs'),
-	hbs = require('hbs'),
-  passport = require('passport');
+	hbs = require('hbs');
+  //passport = require('passport');
 
 // init app
 var app = express();
