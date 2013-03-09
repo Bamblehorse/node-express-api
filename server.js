@@ -72,7 +72,7 @@ mongoose.connect(uristring, mongoOptions, function (err, res) {
 });
 */
 // start connection to database
-mongoose.connect('mongodb://localhost/SOFT338');
+//mongoose.connect('mongodb://localhost/SOFT338');
 
 //start application
 var port = process.env.PORT || 3000;
