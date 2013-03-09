@@ -61,16 +61,16 @@ var uristring =
 
 // Ensure safe writes
 var mongoOptions = { user: "heroku_app11371005", account: "heroku_app11371005" ,db: { safe: true }};
-
+*/
 // Connect
-mongoose.connect(uristring, mongoOptions, function (err, res) {
-  if (err) { 
-    console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+mongoose.connect(process.env.MONGOLAB_URI, {}, function (err, db) {
+  if (err) {
+    console.log('monglab error');
   } else {
-    console.log ('Succeeded connected to: ' + uristring);
+    console.log('Success connecting to ', process.env.MONGOLAB_URI);
   }
 });
-*/
+
 // start connection to database
 //mongoose.connect('mongodb://localhost/SOFT338');
 
