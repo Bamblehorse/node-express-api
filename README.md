@@ -60,3 +60,8 @@ api.domain.com/v1/courses
 - Add creation date / other attributes to JSON return, created_at? 
 
 API Key: 6403cc12ebaf45056ab3e924fce62064851de819
+
+todo:
+- update users new view with stage field
+- add grid from excel to index
+- fix /modules/ on deployment

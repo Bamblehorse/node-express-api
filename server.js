@@ -38,21 +38,21 @@ require('./config/registerPartials.js')(app, express);
 // dat route
 require('./config/routes.js')(app, express);
 
-/*
+
 var uristring = 
   process.env.MONGODB_URI || 
   process.env.MONGOLAB_URI || 
   'mongodb://localhost/soft338';
-
+/*
 // Ensure safe writes
 var mongoOptions = { user: "heroku_app11371005", account: "heroku_app11371005" ,db: { safe: true }};
 */
 // Connect
-mongoose.connect(process.env.MONGOLAB_URI, {}, function (err, db) {
+mongoose.connect(uristring, {}, function (err, db) {
   if (err) {
-    console.log('monglab error');
+    console.log('mongoose error');
   } else {
-    console.log('Success connecting to ', process.env.MONGOLAB_URI);
+    console.log('Success connecting to database');
   }
 });
 
