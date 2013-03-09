@@ -2,6 +2,16 @@
 
 	<!-- <a href="/auth/twitter" class="btn btn-primary btn-medium">Authenticate with Twitter</a>
 	<br /> -->
+	<ul class="contents">
+		<li><a href="">Generating an API &amp; Authentication</a></li>
+		<li><a href="">API Design Overview</a></li>
+		<li><a href="">Methods</a></li>
+		<li><a href="">Associations</a></li>
+		<li><a href="">Pagination</a></li>
+		<li><a href="">Selecting fields</a></li>
+		<li><a href="">Example Request</a></li>
+		<li><a href="">Example Error</a></li>
+	</ul>
 
 	<h2>Generate API Key</h2>
 	<form id="genAPIKey" method="POST" action="/apikey">
@@ -10,17 +20,384 @@
 	</form>
 	<div id="output"></div>
 
-
 	<h2>Base URL</h2>
 	<p>All URLs referenced in the documentation have the following base:</p>
 	<div class="well baseurl">http://localhost:3000/v1</div>
 
 	<h3>Authentication</h3>
-	<p>The API will only accept requests from authenticated users, this means you <b>always</b> need to supply an apikey parameter.
+	<p>The API will only accept requests from authenticated users, this means you <b>always</b> need to supply an apikey parameter.</p>
 	<div class="well">/courses/5133b2b8257e63484a000001<b>?apikey=6403cc12ebaf45056ab3e924fce62064851de819</b></div>
+	<hr />
+
+	<!-- API Design Overview -->
+
+	<h3>API Design Overview</h3>
+	<p>Here is a table demonstrating the overall design of the API, resources are interchangeable.</p>
+	<table class="table table-hover table-bordered">
+
+		<thead>
+			<tr>
+				<th>Resource</th>
+				<th>GET</th>
+				<th>POST</th>
+				<th>PUT</th>
+				<th>DELETE</th>
+			<tr>
+		</thead>
+
+		<tbody>
+			<tr>
+				<td>/courses/</td>
+				<td>Display all Courses</td>
+				<td>Create a new Course</td>
+				<td>Bulk Update all Courses</td>
+				<td>Delete all Courses</td>
+			</tr>
+
+			<tr>
+				<td>/courses/:id</td>
+				<td>Show single Course</td>
+				<td>Error</td>	
+				<td>Update single Course</td>
+				<td>Delete single Course</td>
+			</tr>
+
+			<tr>
+				<td>/courses/:id/modules/</td>
+				<td>Show Modules associated with Course</td>
+				<td>Create new Module with Course ID automatically associated</td>
+				<td>Error</td>
+				<td>Error</td>
+			</tr>
+		</tbody>
+
+	</table>
+
+	<hr />
+
+	<!-- API Resources -->
+	<h2>API Resources</h2>
+
+	<h4>Courses</h4>
+	<p>Courses are an individual course that a student may be linked to, they also contain multiple modules. Parameters in bold are <b>mandatory</b>.</p>
+	
+	<table class="table table-condensed table-hover">
+		<thead>
+			<th>Resource</th>
+			<th>Description</th>
+			<th>Parameters</th>
+			<th>Required Data</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>GET /courses/</td>
+				<td>Returns all Courses</td>
+				<td><b>apikey</b>, fields, limit, offset</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>POST /courses/</td>
+				<td>Creates a new course</td>
+				<td><b>apikey</b></td>
+				<td>
+					<ul>
+						<li>name (string)</li>
+						<li>code (number)</li>
+						<li>faculty (string)</li>
+						<li>school (string)</li>
+						<li>level (string)</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>PUT /courses/</td>
+				<td>Bulk Update Courses</td>
+				<td><b>apikey</b></td>
+				<td>
+					<ul>
+						<li>name (string)</li>
+						<li>code (number)</li>
+						<li>faculty (string)</li>
+						<li>school (string)</li>
+						<li>level (string)</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>DELETE /courses/</td>
+				<td>Deletes all Courses</td>
+				<td><b>apikey</b></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>GET /courses/:id</td>
+				<td>Returns single Course</td>
+				<td><b>apikey</b>, fields, limit, offset</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>PUT /courses/:id</td>
+				<td>Updates single Course</td>
+				<td><b>apikey</b>, fields, limit, offset</td>
+				<td>
+					<ul>
+						<li>name (string)</li>
+						<li>code (number)</li>
+						<li>faculty (string)</li>
+						<li>school (string)</li>
+						<li>level (string)</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>DELETE /courses/:id</td>
+				<td>Deletes single Course</td>
+				<td><b>apikey</b></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>GET /modules/:id/courses/</td>
+				<td>Returns Courses which are associated<br /> with a Module</td>
+				<td><b>apikey</b>, fields, limit, offset</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>GET /users/:id/courses/</td>
+				<td>Returns Courses which are associated<br /> with a User</td>
+				<td><b>apikey</b>, fields, limit, offset</td>
+				<td></td>
+			</tr>		
+		</tbody>
+	</table>
+
+	<h4>Modules</h4>
+	<p>Modules are individual parts of a course, there are multiple Modules per Course and multiple Courses may have the same Module. Parameters in bold are <b>mandatory</b>.</p>
+	
+	<table class="table table-condensed table-hover">
+		<thead>
+			<th>Resource</th>
+			<th>Description</th>
+			<th>Parameters</th>
+			<th>Required Data</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>GET /modules/</td>
+				<td>Returns all Modules</td>
+				<td><b>apikey</b>, fields, limit, offset</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>POST /modules/</td>
+				<td>Creates a new Module</td>
+				<td><b>apikey</b></td>
+				<td>
+					<ul>
+						<li>name (string)</li>
+						<li>code (string)</li>
+						<li>stage (number)</li>
+						<li>courses (array)</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>PUT /modules/</td>
+				<td>Bulk Update Modules</td>
+				<td><b>apikey</b></td>
+				<td>
+					<ul>
+						<li>name (string)</li>
+						<li>code (string)</li>
+						<li>stage (number)</li>
+						<li>courses (array)</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>DELETE /modules/</td>
+				<td>Deletes all Modules</td>
+				<td><b>apikey</b></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>GET /modules/:id</td>
+				<td>Returns single Module</td>
+				<td><b>apikey</b>, fields, limit, offset</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>PUT /modules/:id</td>
+				<td>Updates single Module</td>
+				<td><b>apikey</b>, fields, limit, offset</td>
+				<td>
+					<ul>
+						<li>name (string)</li>
+						<li>code (string)</li>
+						<li>stage (number)</li>
+						<li>courses (array)</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>DELETE /modules/:id</td>
+				<td>Deletes single Module</td>
+				<td><b>apikey</b></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>GET /courses/:id/modules/</td>
+				<td>Returns Modules which are associated<br /> with a Course</td>
+				<td><b>apikey</b>, fields, limit, offset</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>GET /users/:id/modules/</td>
+				<td>Returns Modules which are associated<br /> with a User</td>
+				<td><b>apikey</b>, fields, limit, offset</td>
+				<td></td>
+			</tr>		
+		</tbody>
+	</table>
+
+	<h4>Students</h4>
+	<p>Students are enrolled on a course at a set stage and they attend all modules in their current stage. <b>API Keys are not associated with Students for security reasons.</b> Parameters in bold are <b>mandatory</b>.</p>
+	
+	<table class="table table-condensed table-hover">
+		<thead>
+			<th>Resource</th>
+			<th>Description</th>
+			<th>Parameters</th>
+			<th>Required Data</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>GET /students/</td>
+				<td>Returns all Students</td>
+				<td><b>apikey</b>, fields, limit, offset</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>POST /students/</td>
+				<td>Creates a new Students</td>
+				<td><b>apikey</b></td>
+				<td>
+					<ul>
+						<li>name (string)</li>
+						<li>username (string)</li>
+						<li>stage (number)</li>
+						<li>courseid (string)</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>PUT /students/</td>
+				<td>Bulk Update Students</td>
+				<td><b>apikey</b></td>
+				<td>
+					<ul>
+						<li>name (string)</li>
+						<li>username (string)</li>
+						<li>stage (number)</li>
+						<li>courseid (string)</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>DELETE /students/</td>
+				<td>Deletes all Students</td>
+				<td><b>apikey</b></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>GET /students/:id</td>
+				<td>Returns single Student</td>
+				<td><b>apikey</b>, fields, limit, offset</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>PUT /students/:id</td>
+				<td>Updates single Student</td>
+				<td><b>apikey</b>, fields, limit, offset</td>
+				<td>
+					<ul>
+						<li>name (string)</li>
+						<li>username (string)</li>
+						<li>stage (number)</li>
+						<li>courseid (string)</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>DELETE /students/:id</td>
+				<td>Deletes single Student</td>
+				<td><b>apikey</b></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>GET /courses/:id/students/</td>
+				<td>Returns Students which are associated<br /> with a Course</td>
+				<td><b>apikey</b>, fields, limit, offset</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>GET /modules/:id/students/</td>
+				<td>Returns Students which are associated<br /> with a Module</td>
+				<td><b>apikey</b>, fields, limit, offset</td>
+				<td></td>
+			</tr>		
+		</tbody>
+	</table>
+
+	<hr />
+
+	<h3>Associations</h3>
+	<p>Associations are resources which are contextually linked together. The API allows you to easily select associations without the developer having to do the work.</p>
+
+	<div class="testable">
+
+		<h5>Associated Modules</h5>
+		<div class="well url">/courses/5133b2b8257e63484a000001<b>/modules</b></div>
+
+		<button type="button" class="go">See Result</button>
+
+		<div class="result hide">
+
+			<h4>Headers</h4>
+			<pre class="headers"></pre>
+
+			<h4>Output</h4>
+			<pre class="output"></pre>
+
+		</div>
+
+	</div>
+	
+	<div class="testable">
+
+	<h5>Associated Users</h5>
+	<div class="well url">/courses/5133b2b8257e63484a000001<b>/users</b></div>
+
+		<button type="button" class="go">See Result</button>
+
+		<div class="result hide">
+
+			<h4>Headers</h4>
+			<pre class="headers"></pre>
+
+			<h4>Output</h4>
+			<pre class="output"></pre>
+
+		</div>
+
+	</div>
+
+	<hr />
 
 	<h3>Select fields</h3>
+	<p>Get what you want. The API allows you to explicitly specify which fields you would like returned. Please note _id is always included.</p>
 	<div class="well">/courses/5133b2b8257e63484a000001<b>?fields=name,school,code</b></div>
+
+	<hr />
 
 	<div class="testable">
 
