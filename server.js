@@ -22,13 +22,6 @@ app.configure(function(){
     app.use('/js', express.static(__dirname + '/public/js'));
     app.use('/fonts', express.static(__dirname + '/public/fonts'));
 
-    //passport
-    app.use(express.cookieParser());
-    app.use(express.bodyParser());
-    app.use(express.session({ secret: 'keyboard cat' }));
-    app.use(passport.initialize());
-    app.use(passport.session());
-
     console.log('views: ', app.get('views'));
 
 });
