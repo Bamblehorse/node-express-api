@@ -218,7 +218,7 @@ exports.students = function (req, res) {
 
 	var courseid = req.params.id;
 
-	User.find({ courseid:courseid }, utils.getFields(req.query), function(err, docs){
+	Student.find({ courseid:courseid }, utils.getFields(req.query), function(err, docs){
 		if (err) { 
 			console.log(err);
 			utils.handleErrors(err, res);
