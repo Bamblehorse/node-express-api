@@ -2,8 +2,8 @@ var mongoose = require('mongoose'),
 	Model = mongoose.model('APIKey'),
 	sha1 = require('sha1'),
 	utils = require('../../config/utils.js'),
-	sanitize = require('validator').sanitize,
-	RateLimiter = require('limiter').RateLimiter;
+	sanitize = require('validator').sanitize;
+	//RateLimiter = require('limiter').RateLimiter;
 
 exports.generate = function (req, res) {
 
