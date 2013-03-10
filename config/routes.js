@@ -22,7 +22,7 @@ module.exports = function (app, express) {
 	//app.get('/v1/', apikey.auth);
 
 	// courses
-	app.get('/v1/courses/', apikey.auth, courses.index);
+	app.get('/v1/courses/', apikey.auth, apikey.limit, courses.index);
 	app.get('/v1/courses/new', apikey.auth, courses.new);
 	app.post('/v1/courses/', courses.create);
 	app.get('/v1/courses/:id', apikey.auth, courses.show);

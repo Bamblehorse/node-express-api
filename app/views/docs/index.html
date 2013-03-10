@@ -13,14 +13,16 @@
 		<li><a href="">Example Error</a></li>
 	</ul>
 
-	<h2>Generate API Key</h2>
+	<h2>Step 1</h2>
+
+	<h4>Generate API Key</h4>
 	<form id="genAPIKey" method="POST" action="/apikey">
 		<input type="email" name="email" placeholder="Email Address" />
 		<button id="submit" type="submit" class="btn btn-medium btn-primary">Generate</button>
 	</form>
 	<div id="output"></div>
 
-	<h2>Base URL</h2>
+	<h3>Base URL</h5>
 	<p>All URLs referenced in the documentation have the following base:</p>
 	<div class="well baseurl">http://localhost:3000/v1</div>
 
@@ -81,7 +83,7 @@
 	<h4>Courses</h4>
 	<p>Courses are an individual course that a student may be linked to, they also contain multiple modules. Parameters in bold are <b>mandatory</b>.</p>
 	
-	<table class="table table-condensed table-hover">
+	<table class="table table-hover">
 		<thead>
 			<th>Resource</th>
 			<th>Description</th>
@@ -173,7 +175,7 @@
 	<h4>Modules</h4>
 	<p>Modules are individual parts of a course, there are multiple Modules per Course and multiple Courses may have the same Module. Parameters in bold are <b>mandatory</b>.</p>
 	
-	<table class="table table-condensed table-hover">
+	<table class="table table-hover">
 		<thead>
 			<th>Resource</th>
 			<th>Description</th>
@@ -260,9 +262,9 @@
 	</table>
 
 	<h4>Students</h4>
-	<p>Students are enrolled on a course at a set stage and they attend all modules in their current stage. <b>API Keys are not associated with Students for security reasons.</b> Parameters in bold are <b>mandatory</b>.</p>
+	<p>Students are associated with their courseid's modules on their current Stage.<b>API Keys are not associated with Students for security reasons.</b> Parameters in bold are <b>mandatory</b>.</p>
 	
-	<table class="table table-condensed table-hover">
+	<table class="table table-hover">
 		<thead>
 			<th>Resource</th>
 			<th>Description</th>
@@ -351,7 +353,7 @@
 	<hr />
 
 	<h3>Associations</h3>
-	<p>Associations are resources which are contextually linked together. The API allows you to easily select associations without the developer having to do the work.</p>
+	<p>Associations are resources which are contextually linked together. The API allows you to easily select associations without having to do the work.</p>
 
 	<div class="testable">
 
@@ -478,6 +480,8 @@
 
 $(document).ready(function(){
 
+	$('.baseurl').text(document.URL.replace('/docs/', ''));
+
 	var baseurl = $('.baseurl').text();
 
 	// results demo
@@ -489,7 +493,7 @@ $(document).ready(function(){
 			$output = $self.siblings('.result').children('.output'),
 			$result = $self.siblings('.result');
 
-		console.log('click', url, $headers, $output);
+		console.log('click', baseurl+url, $headers, $output);
 
 		$.ajax({
 			url: baseurl+url,

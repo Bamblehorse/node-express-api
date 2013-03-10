@@ -50,6 +50,17 @@ exports.handleErrors = function(err, res){
 			});
 			res.end(JSON.stringify(err));
 		break;
+
+		case 'TooManyRequests':
+			err.message = 'Rate limit exausted for your API key.';
+			err.code = 429;
+			err.more_info = errorUrl+err.code;
+			console.log(err);
+			res.writeHead(err.code, err, {
+				"Content-Type": "text/html"
+			});
+			res.end(JSON.stringify(err));
+		break;
 	}
 
 }

@@ -52,42 +52,45 @@
 	"buffers":
 	[
 		{
+			"file": "server.js",
+			"settings":
+			{
+				"buffer_size": 1744,
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "config/routes.js",
 			"settings":
 			{
-				"buffer_size": 2817,
+				"buffer_size": 2833,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/controllers/APIKeyController.js",
+			"contents": "{{>_header}}\n\n	<!-- <a href=\"/auth/twitter\" class=\"btn btn-primary btn-medium\">Authenticate with Twitter</a>\n	<br /> -->\n	<ul class=\"contents\">\n		<li><a href=\"\">Generating an API &amp; Authentication</a></li>\n		<li><a href=\"\">API Design Overview</a></li>\n		<li><a href=\"\">Methods</a></li>\n		<li><a href=\"\">Associations</a></li>\n		<li><a href=\"\">Pagination</a></li>\n		<li><a href=\"\">Selecting fields</a></li>\n		<li><a href=\"\">Example Request</a></li>\n		<li><a href=\"\">Example Error</a></li>\n	</ul>\n\n	<h2>Step 1</h2>\n\n	<h4>Generate API Key</h4>\n	<form id=\"genAPIKey\" method=\"POST\" action=\"/apikey\">\n		<input type=\"email\" name=\"email\" placeholder=\"Email Address\" />\n		<button id=\"submit\" type=\"submit\" class=\"btn btn-medium btn-primary\">Generate</button>\n	</form>\n	<div id=\"output\"></div>\n\n	<h3>Base URL</h5>\n	<p>All URLs referenced in the documentation have the following base:</p>\n	<div class=\"well baseurl\">http://localhost:3000/v1</div>\n\n	<h3>Authentication</h3>\n	<p>The API will only accept requests from authenticated users, this means you <b>always</b> need to supply an apikey parameter.</p>\n	<div class=\"well\">/courses/5133b2b8257e63484a000001<b>?apikey=6403cc12ebaf45056ab3e924fce62064851de819</b></div>\n	<hr />\n\n	<!-- API Design Overview -->\n\n	<h3>API Design Overview</h3>\n	<p>Here is a table demonstrating the overall design of the API, resources are interchangeable.</p>\n	<table class=\"table table-hover table-bordered\">\n\n		<thead>\n			<tr>\n				<th>Resource</th>\n				<th>GET</th>\n				<th>POST</th>\n				<th>PUT</th>\n				<th>DELETE</th>\n			<tr>\n		</thead>\n\n		<tbody>\n			<tr>\n				<td>/courses/</td>\n				<td>Display all Courses</td>\n				<td>Create a new Course</td>\n				<td>Bulk Update all Courses</td>\n				<td>Delete all Courses</td>\n			</tr>\n\n			<tr>\n				<td>/courses/:id</td>\n				<td>Show single Course</td>\n				<td>Error</td>	\n				<td>Update single Course</td>\n				<td>Delete single Course</td>\n			</tr>\n\n			<tr>\n				<td>/courses/:id/modules/</td>\n				<td>Show Modules associated with Course</td>\n				<td>Create new Module with Course ID automatically associated</td>\n				<td>Error</td>\n				<td>Error</td>\n			</tr>\n		</tbody>\n\n	</table>\n\n	<hr />\n\n	<!-- API Resources -->\n	<h2>API Resources</h2>\n\n	<h4>Courses</h4>\n	<p>Courses are an individual course that a student may be linked to, they also contain multiple modules. Parameters in bold are <b>mandatory</b>.</p>\n	\n	<table class=\"table table-hover\">\n		<thead>\n			<th>Resource</th>\n			<th>Description</th>\n			<th>Parameters</th>\n			<th>Required Data</th>\n		</thead>\n		<tbody>\n			<tr>\n				<td>GET /courses/</td>\n				<td>Returns all Courses</td>\n				<td><b>apikey</b>, fields, limit, offset</td>\n				<td></td>\n			</tr>\n			<tr>\n				<td>POST /courses/</td>\n				<td>Creates a new course</td>\n				<td><b>apikey</b></td>\n				<td>\n					<ul>\n						<li>name (string)</li>\n						<li>code (number)</li>\n						<li>faculty (string)</li>\n						<li>school (string)</li>\n						<li>level (string)</li>\n					</ul>\n				</td>\n			</tr>\n			<tr>\n				<td>PUT /courses/</td>\n				<td>Bulk Update Courses</td>\n				<td><b>apikey</b></td>\n				<td>\n					<ul>\n						<li>name (string)</li>\n						<li>code (number)</li>\n						<li>faculty (string)</li>\n						<li>school (string)</li>\n						<li>level (string)</li>\n					</ul>\n				</td>\n			</tr>\n			<tr>\n				<td>DELETE /courses/</td>\n				<td>Deletes all Courses</td>\n				<td><b>apikey</b></td>\n				<td></td>\n			</tr>\n			<tr>\n				<td>GET /courses/:id</td>\n				<td>Returns single Course</td>\n				<td><b>apikey</b>, fields, limit, offset</td>\n				<td></td>\n			</tr>\n			<tr>\n				<td>PUT /courses/:id</td>\n				<td>Updates single Course</td>\n				<td><b>apikey</b>, fields, limit, offset</td>\n				<td>\n					<ul>\n						<li>name (string)</li>\n						<li>code (number)</li>\n						<li>faculty (string)</li>\n						<li>school (string)</li>\n						<li>level (string)</li>\n					</ul>\n				</td>\n			</tr>\n			<tr>\n				<td>DELETE /courses/:id</td>\n				<td>Deletes single Course</td>\n				<td><b>apikey</b></td>\n				<td></td>\n			</tr>\n			<tr>\n				<td>GET /modules/:id/courses/</td>\n				<td>Returns Courses which are associated<br /> with a Module</td>\n				<td><b>apikey</b>, fields, limit, offset</td>\n				<td></td>\n			</tr>\n			<tr>\n				<td>GET /users/:id/courses/</td>\n				<td>Returns Courses which are associated<br /> with a User</td>\n				<td><b>apikey</b>, fields, limit, offset</td>\n				<td></td>\n			</tr>		\n		</tbody>\n	</table>\n\n	<h4>Modules</h4>\n	<p>Modules are individual parts of a course, there are multiple Modules per Course and multiple Courses may have the same Module. Parameters in bold are <b>mandatory</b>.</p>\n	\n	<table class=\"table table-hover\">\n		<thead>\n			<th>Resource</th>\n			<th>Description</th>\n			<th>Parameters</th>\n			<th>Required Data</th>\n		</thead>\n		<tbody>\n			<tr>\n				<td>GET /modules/</td>\n				<td>Returns all Modules</td>\n				<td><b>apikey</b>, fields, limit, offset</td>\n				<td></td>\n			</tr>\n			<tr>\n				<td>POST /modules/</td>\n				<td>Creates a new Module</td>\n				<td><b>apikey</b></td>\n				<td>\n					<ul>\n						<li>name (string)</li>\n						<li>code (string)</li>\n						<li>stage (number)</li>\n						<li>courses (array)</li>\n					</ul>\n				</td>\n			</tr>\n			<tr>\n				<td>PUT /modules/</td>\n				<td>Bulk Update Modules</td>\n				<td><b>apikey</b></td>\n				<td>\n					<ul>\n						<li>name (string)</li>\n						<li>code (string)</li>\n						<li>stage (number)</li>\n						<li>courses (array)</li>\n					</ul>\n				</td>\n			</tr>\n			<tr>\n				<td>DELETE /modules/</td>\n				<td>Deletes all Modules</td>\n				<td><b>apikey</b></td>\n				<td></td>\n			</tr>\n			<tr>\n				<td>GET /modules/:id</td>\n				<td>Returns single Module</td>\n				<td><b>apikey</b>, fields, limit, offset</td>\n				<td></td>\n			</tr>\n			<tr>\n				<td>PUT /modules/:id</td>\n				<td>Updates single Module</td>\n				<td><b>apikey</b>, fields, limit, offset</td>\n				<td>\n					<ul>\n						<li>name (string)</li>\n						<li>code (string)</li>\n						<li>stage (number)</li>\n						<li>courses (array)</li>\n					</ul>\n				</td>\n			</tr>\n			<tr>\n				<td>DELETE /modules/:id</td>\n				<td>Deletes single Module</td>\n				<td><b>apikey</b></td>\n				<td></td>\n			</tr>\n			<tr>\n				<td>GET /courses/:id/modules/</td>\n				<td>Returns Modules which are associated<br /> with a Course</td>\n				<td><b>apikey</b>, fields, limit, offset</td>\n				<td></td>\n			</tr>\n			<tr>\n				<td>GET /users/:id/modules/</td>\n				<td>Returns Modules which are associated<br /> with a User</td>\n				<td><b>apikey</b>, fields, limit, offset</td>\n				<td></td>\n			</tr>		\n		</tbody>\n	</table>\n\n	<h4>Students</h4>\n	<p>Students are associated with their courseid's modules on their current Stage.<b>API Keys are not associated with Students for security reasons.</b> Parameters in bold are <b>mandatory</b>.</p>\n	\n	<table class=\"table table-hover\">\n		<thead>\n			<th>Resource</th>\n			<th>Description</th>\n			<th>Parameters</th>\n			<th>Required Data</th>\n		</thead>\n		<tbody>\n			<tr>\n				<td>GET /students/</td>\n				<td>Returns all Students</td>\n				<td><b>apikey</b>, fields, limit, offset</td>\n				<td></td>\n			</tr>\n			<tr>\n				<td>POST /students/</td>\n				<td>Creates a new Students</td>\n				<td><b>apikey</b></td>\n				<td>\n					<ul>\n						<li>name (string)</li>\n						<li>username (string)</li>\n						<li>stage (number)</li>\n						<li>courseid (string)</li>\n					</ul>\n				</td>\n			</tr>\n			<tr>\n				<td>PUT /students/</td>\n				<td>Bulk Update Students</td>\n				<td><b>apikey</b></td>\n				<td>\n					<ul>\n						<li>name (string)</li>\n						<li>username (string)</li>\n						<li>stage (number)</li>\n						<li>courseid (string)</li>\n					</ul>\n				</td>\n			</tr>\n			<tr>\n				<td>DELETE /students/</td>\n				<td>Deletes all Students</td>\n				<td><b>apikey</b></td>\n				<td></td>\n			</tr>\n			<tr>\n				<td>GET /students/:id</td>\n				<td>Returns single Student</td>\n				<td><b>apikey</b>, fields, limit, offset</td>\n				<td></td>\n			</tr>\n			<tr>\n				<td>PUT /students/:id</td>\n				<td>Updates single Student</td>\n				<td><b>apikey</b>, fields, limit, offset</td>\n				<td>\n					<ul>\n						<li>name (string)</li>\n						<li>username (string)</li>\n						<li>stage (number)</li>\n						<li>courseid (string)</li>\n					</ul>\n				</td>\n			</tr>\n			<tr>\n				<td>DELETE /students/:id</td>\n				<td>Deletes single Student</td>\n				<td><b>apikey</b></td>\n				<td></td>\n			</tr>\n			<tr>\n				<td>GET /courses/:id/students/</td>\n				<td>Returns Students which are associated<br /> with a Course</td>\n				<td><b>apikey</b>, fields, limit, offset</td>\n				<td></td>\n			</tr>\n			<tr>\n				<td>GET /modules/:id/students/</td>\n				<td>Returns Students which are associated<br /> with a Module</td>\n				<td><b>apikey</b>, fields, limit, offset</td>\n				<td></td>\n			</tr>		\n		</tbody>\n	</table>\n\n	<hr />\n\n	<h3>Associations</h3>\n	<p>Associations are resources which are contextually linked together. The API allows you to easily select associations without having to do the work.</p>\n\n	<div class=\"testable\">\n\n		<h5>Associated Modules</h5>\n		<div class=\"well url\">/courses/5133b2b8257e63484a000001<b>/modules</b></div>\n\n		<button type=\"button\" class=\"go\">See Result</button>\n\n		<div class=\"result hide\">\n\n			<h4>Headers</h4>\n			<pre class=\"headers\"></pre>\n\n			<h4>Output</h4>\n			<pre class=\"output\"></pre>\n\n		</div>\n\n	</div>\n	\n	<div class=\"testable\">\n\n	<h5>Associated Users</h5>\n	<div class=\"well url\">/courses/5133b2b8257e63484a000001<b>/users</b></div>\n\n		<button type=\"button\" class=\"go\">See Result</button>\n\n		<div class=\"result hide\">\n\n			<h4>Headers</h4>\n			<pre class=\"headers\"></pre>\n\n			<h4>Output</h4>\n			<pre class=\"output\"></pre>\n\n		</div>\n\n	</div>\n\n	<hr />\n\n	<h3>Select fields</h3>\n	<p>Get what you want. The API allows you to explicitly specify which fields you would like returned. Please note _id is always included.</p>\n	<div class=\"well\">/courses/5133b2b8257e63484a000001<b>?fields=name,school,code</b></div>\n\n	<hr />\n\n	<div class=\"testable\">\n\n		<h2>Example Request</h2>\n		<div class=\"well url\">/courses/5133b2b8257e63484a000001?apikey=6403cc12ebaf45056ab3e924fce62064851de819&amp;fields=name,school,code</div>\n\n		<button type=\"button\" class=\"go\">See Result</button>\n		\n		<div class=\"result hide\">\n\n			<h4>Headers</h4>\n			<pre class=\"headers\"></pre>\n\n			<h4>Output</h4>\n			<pre class=\"output\"></pre>\n\n		</div>\n\n	</div>\n\n	<div class=\"testable\">\n\n		<h2>Example Error</h2>\n		<div class=\"well url\">/courses/5133b2b8257e63484a000002</div>\n\n		<button type=\"button\" class=\"go\">See Result</button>\n		\n		<div class=\"result hide\">\n\n			<h4>Headers</h4>\n			<pre class=\"headers\"></pre>\n\n			<h4>Output</h4>\n			<pre class=\"output\"></pre>\n\n		</div>\n\n	</div>\n\n<!-- \n\n	<ul>\n	<li>GET 	/courses/ 				courses.index</li>\n	<li>GET 	/courses/new 			courses.new -> new view</li>\n	<li>POST 	/courses/				courses.create</li>\n	<li>GET 	/courses/:id 			courses.show</li>\n	<li>GET 	/courses/:id/edit		courses.edit -> edit view</li>\n	<li>PUT 	/courses/:id 			courses.update</li>\n	<li>DELETE 	/courses/:id 			courses.destroy</li>\n	<li>GET 	/courses/:id/users/		courses.users</li>\n	<li>GET 	/courses/:id/modules/	courses.modules</li>\n	</ul>\n\n	<ul>\n	<li>GET 	/modules/ 				modules.index</li>\n	<li>GET 	/modules/new 			modules.new -> new view</li>\n	<li>POST 	/modules/				modules.create</li>\n	<li>GET 	/modules/:id 			modules.show</li>\n	<li>GET 	/modules/:id/edit		modules.edit -> edit view</li>\n	<li>PUT 	/modules/:id 			modules.update</li>\n	<li>DELETE 	/modules/:id 			modules.destroy</li>\n	<li>GET 	/modules/:id/users 		modules.users</li>\n	</ul>\n\n	<ul>\n	<li>GET 	/users/ 				users.index</li>\n	<li>GET 	/users/new 				users.new -> new view</li>\n	<li>POST 	/users/					users.create</li>\n	<li>GET 	/users/:id 				users.show</li>\n	<li>GET 	/users/:id/edit			users.edit -> edit view</li>\n	<li>PUT 	/users/:id 				users.update</li>\n	<li>DELETE 	/users/:id 				users.destroy</li>\n	</ul>\n\n	-->\n\n<script>\n\n$(document).ready(function(){\n\n	var baseurl = $('.baseurl').text();\n\n	// results demo\n	$('.testable .go').toggle(function(e){\n		e.preventDefault();\n		var $self = $(this);\n		var url = $self.siblings('.url').text(),\n			$headers = $self.siblings('.result').children('.headers'),\n			$output = $self.siblings('.result').children('.output'),\n			$result = $self.siblings('.result');\n\n		console.log('click', url, $headers, $output);\n\n		$.ajax({\n			url: baseurl+url,\n			type: 'GET',\n			success: function(data, textStatus, xhr) {\n				console.log('ajax success', data, $result, $headers);\n				$result.removeClass('hide').addClass('show');\n				$self.text('Hide Result');\n				$output.text(JSON.stringify(data, undefined, 2));\n				$headers.text(xhr.getAllResponseHeaders());\n				$headers.append(xhr.status, ' ');\n				$headers.append(xhr.statusText);\n			},\n			error: function(err) {\n				console.log(err);\n			}\n		});\n\n	}, function(){\n		var $self = $(this),\n			$result = $self.siblings('.result');\n\n		$result.removeClass('show').addClass('hide');\n		$self.text('Show Result');\n	});\n\n});\n\n</script>\n\n{{>_footer}}",
+			"file": "app/views/docs/index.html",
+			"file_size": 13383,
+			"file_write_time": 130073578968367156,
 			"settings":
 			{
-				"buffer_size": 1001,
+				"buffer_size": 12845,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/controllers/CourseController.js",
+			"file": "public/css/main.css",
 			"settings":
 			{
-				"buffer_size": 5206,
+				"buffer_size": 205,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/controllers/ModuleController.js",
+			"file": "app/controllers/ApplicationController.js",
 			"settings":
 			{
-				"buffer_size": 2653,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/controllers/UserController.js",
-			"settings":
-			{
-				"buffer_size": 3845,
+				"buffer_size": 195,
 				"line_ending": "Windows"
 			}
 		},
@@ -95,55 +98,47 @@
 			"file": "config/utils.js",
 			"settings":
 			{
-				"buffer_size": 2183,
+				"buffer_size": 2461,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "README.md",
+			"file": "app/views/partials/_header.html",
 			"settings":
 			{
-				"buffer_size": 1874,
+				"buffer_size": 952,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/views/modules/edit.html",
+			"file": "app/views/partials/_footer.html",
 			"settings":
 			{
-				"buffer_size": 1209,
+				"buffer_size": 566,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/views/docs/index.html",
+			"file": "app/controllers/APIKeyController.js",
 			"settings":
 			{
-				"buffer_size": 2383,
+				"buffer_size": 1438,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/models/CourseModel.js",
+			"file": "app/controllers/CourseController.js",
 			"settings":
 			{
-				"buffer_size": 834,
+				"buffer_size": 5283,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/models/ModuleModel.js",
+			"file": "app/models/APIKeyModel.js",
 			"settings":
 			{
-				"buffer_size": 714,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/models/UserModel.js",
-			"settings":
-			{
-				"buffer_size": 722,
+				"buffer_size": 438,
 				"line_ending": "Windows"
 			}
 		}
@@ -172,29 +167,43 @@
 	},
 	"file_history":
 	[
-		"/C/xampp/htdocs/SOFT338/app/models/UserModel.js",
-		"/C/xampp/htdocs/SOFT338/app/models/ModuleModel.js",
-		"/C/xampp/htdocs/SOFT338/app/views/partials/_footer.html",
-		"/C/xampp/htdocs/SOFT338/app/controllers/ApplicationController.js",
 		"/C/xampp/htdocs/SOFT338/app/models/APIKeyModel.js",
+		"/C/xampp/htdocs/SOFT338/app/views/docs/errors/204.html",
+		"/C/xampp/htdocs/SOFT338/app/views/docs/errors/401.html",
+		"/C/xampp/htdocs/SOFT338/app/views/docs/errors/400.html",
+		"/C/xampp/htdocs/SOFT338/app/views/modules/edit.html",
+		"/C/xampp/htdocs/SOFT338/README.md",
+		"/C/xampp/htdocs/SOFT338/config/utils.js",
+		"/C/xampp/htdocs/SOFT338/app/controllers/UserController.js",
+		"/C/xampp/htdocs/SOFT338/app/controllers/APIKeyController.js",
+		"/C/xampp/htdocs/SOFT338/app/controllers/ModuleController.js",
+		"/C/xampp/htdocs/SOFT338/app/controllers/CourseController.js",
+		"/C/xampp/htdocs/SOFT338/app/models/CourseModel.js",
+		"/C/xampp/htdocs/SOFT338/app/models/ModuleModel.js",
+		"/C/xampp/htdocs/SOFT338/app/models/UserModel.js",
+		"/C/xampp/htdocs/SOFT338/public/css/style.css",
+		"/C/xampp/htdocs/SOFT338/public/css/main.css",
+		"/C/xampp/htdocs/SOFT338/app/views/partials/_header.html",
+		"/C/xampp/htdocs/SOFT338/package.json",
+		"/C/xampp/htdocs/SOFT338/public/js/vendor/google-code-prettify/prettify.js",
+		"/C/xampp/htdocs/SOFT338/public/js/vendor/google-code-prettify/run_prettify.js",
+		"/C/xampp/htdocs/SOFT338/app/views/partials/_footer.html",
+		"/C/xampp/htdocs/SOFT338/node_modules/validator/package.json",
+		"/C/xampp/htdocs/SOFT338/node_modules/sha1/package.json",
+		"/C/xampp/htdocs/SOFT338/node_modules/mongoose-validator/package.json",
+		"/C/xampp/htdocs/SOFT338/app/controllers/ApplicationController.js",
 		"/C/xampp/htdocs/SOFT338/server.js",
 		"/C/xampp/htdocs/SOFT338/app/views/docs/index.html",
 		"/C/xampp/htdocs/SOFT338/Procfile",
 		"/C/xampp/htdocs/SOFT338/app/views/courses/edit.html",
 		"/C/xampp/htdocs/SOFT338/backup.json",
-		"/C/xampp/htdocs/SOFT338/app/controllers/ModuleController.js",
 		"/C/xampp/htdocs/SOFT338/app/views/index.html",
 		"/C/xampp/htdocs/SOFT338/app/views/modules/new.html",
-		"/C/xampp/htdocs/SOFT338/app/models/CourseModel.js",
 		"/C/xampp/htdocs/SOFT338/app/views/users/new.html",
 		"/C/xampp/htdocs/SOFT338/app/views/courses/new.html",
 		"/C/Users/Adam/Downloads/kcr.pls",
 		"/C/xampp/htdocs/deadlines/.git/config",
-		"/C/xampp/htdocs/SOFT338/README.md",
-		"/C/xampp/htdocs/SOFT338/config/utils.js",
-		"/C/xampp/htdocs/SOFT338/app/views/partials/_header.html",
 		"/C/xampp/htdocs/SOFT338/.procfile",
-		"/C/xampp/htdocs/SOFT338/package.json",
 		"/C/xampp/htdocs/SOFT338/.gitignore",
 		"/C/xampp/htdocs/SOFT338/config/registerPartials.js",
 		"/C/xampp/htdocs/SOFT338/app/models/CourseModel",
@@ -285,21 +294,7 @@
 		"/C/xampp/htdocs/AINT304/src/sass/640.scss",
 		"/C/xampp/htdocs/AINT304/src/sass/main.scss",
 		"/C/xampp/htdocs/AINT304/public/css/main.css",
-		"/C/xampp/htdocs/AINT304/public/index.html",
-		"/C/xampp/htdocs/AINT304/src/sass/768.scss",
-		"/C/xampp/htdocs/AINT304/public/results.html",
-		"/C/xampp/htdocs/AINT304/src/sass/style.scss",
-		"/C/xampp/htdocs/AINT304/src/sass/boilerplate.scss",
-		"/C/xampp/htdocs/AINT304/src/sass/helpers.scss",
-		"/C/Users/Adam/.gitconfig",
-		"/C/xampp/htdocs/AINT304/public/images/preview.png",
-		"/C/xampp/htdocs/AINT304/public/css/normalize.min.css",
-		"/C/Windows/System32/drivers/etc/hosts",
-		"/C/Users/Adam/Downloads/jira_backup.sql",
-		"/C/Users/Adam/Desktop/My Basket - Tesco Groceries_files/standard",
-		"/C/xampp/htdocs/uni/soft335/week1/js/app.js",
-		"/C/Users/Adam/Desktop/dir.rb",
-		"/C/xampp/htdocs/uni/soft335/week1/index.html"
+		"/C/xampp/htdocs/AINT304/public/index.html"
 	],
 	"find":
 	{
@@ -310,6 +305,7 @@
 		"height": 0.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -317,6 +313,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"passport",
+			"hbs",
 			");\n",
 			"String",
 			"Striong",
@@ -403,50 +401,51 @@
 	"groups":
 	[
 		{
-			"selected": 8,
+			"selected": 10,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "config/routes.js",
+					"file": "server.js",
 					"settings":
 					{
-						"buffer_size": 2817,
+						"buffer_size": 1744,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								731,
-								731
+								1021,
+								1021
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "app/controllers/APIKeyController.js",
+					"file": "config/routes.js",
 					"settings":
 					{
-						"buffer_size": 1001,
+						"buffer_size": 2833,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								687,
-								687
+								744,
+								744
 							]
 						],
 						"settings":
@@ -462,24 +461,50 @@
 				},
 				{
 					"buffer": 2,
-					"file": "app/controllers/CourseController.js",
+					"file": "app/views/docs/index.html",
 					"settings":
 					{
-						"buffer_size": 5206,
+						"buffer_size": 12845,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4315,
-								4443
+								8697,
+								8697
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 5095.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "public/css/main.css",
+					"settings":
+					{
+						"buffer_size": 205,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								203,
+								203
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -488,55 +513,27 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "app/controllers/ModuleController.js",
-					"settings":
-					{
-						"buffer_size": 2653,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2634,
-								2634
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 450.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
 					"buffer": 4,
-					"file": "app/controllers/UserController.js",
+					"file": "app/controllers/ApplicationController.js",
 					"settings":
 					{
-						"buffer_size": 3845,
+						"buffer_size": 195,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3199,
-								3199
+								195,
+								195
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1653.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -546,15 +543,15 @@
 					"file": "config/utils.js",
 					"settings":
 					{
-						"buffer_size": 2183,
+						"buffer_size": 2461,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1933,
-								1933
+								1324,
+								1339
 							]
 						],
 						"settings":
@@ -563,51 +560,53 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 654.0,
+						"translation.y": 844.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 6,
-					"file": "README.md",
+					"file": "app/views/partials/_header.html",
 					"settings":
 					{
-						"buffer_size": 1874,
+						"buffer_size": 952,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1834,
-								1874
+								919,
+								919
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 90.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 7,
-					"file": "app/views/modules/edit.html",
+					"file": "app/views/partials/_footer.html",
 					"settings":
 					{
-						"buffer_size": 1209,
+						"buffer_size": 566,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								783,
-								783
+								26,
+								26
 							]
 						],
 						"settings":
@@ -623,97 +622,72 @@
 				},
 				{
 					"buffer": 8,
-					"file": "app/views/docs/index.html",
+					"file": "app/controllers/APIKeyController.js",
 					"settings":
 					{
-						"buffer_size": 2383,
+						"buffer_size": 1438,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1158,
-								1158
+								973,
+								973
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 120.0,
+						"translation.y": 135.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 9,
-					"file": "app/models/CourseModel.js",
+					"file": "app/controllers/CourseController.js",
 					"settings":
 					{
-						"buffer_size": 834,
+						"buffer_size": 5283,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								368,
-								368
+								1599,
+								1599
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 720.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 10,
-					"file": "app/models/ModuleModel.js",
+					"file": "app/models/APIKeyModel.js",
 					"settings":
 					{
-						"buffer_size": 714,
+						"buffer_size": 438,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								149,
-								149
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "app/models/UserModel.js",
-					"settings":
-					{
-						"buffer_size": 722,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								325,
-								325
+								273,
+								259
 							]
 						],
 						"settings":
