@@ -2,7 +2,7 @@
 var application = require('../app/controllers/ApplicationController'),
 	courses = require('../app/controllers/CourseController'),
 	modules = require('../app/controllers/ModuleController'),
-	users = require('../app/controllers/UserController'),
+	students = require('../app/controllers/StudentController'),
 	apikey = require('../app/controllers/APIKeyController');
 	//passport = require('passport'),
 	//TwitterStrategy = require('passport-twitter').Strategy;
@@ -22,7 +22,7 @@ module.exports = function (app, express) {
 	//app.get('/v1/', apikey.auth);
 
 	// courses
-	app.get('/v1/courses/', apikey.auth, apikey.limit, courses.index);
+	app.get('/v1/courses/', apikey.auth, courses.index);
 	app.get('/v1/courses/new', apikey.auth, courses.new);
 	app.post('/v1/courses/', courses.create);
 	app.get('/v1/courses/:id', apikey.auth, courses.show);
@@ -30,7 +30,7 @@ module.exports = function (app, express) {
 	app.put('/v1/courses/:id', courses.update);
 	app.delete('/v1/courses/:id', courses.destroy);
 	app.get('/v1/courses/:id/modules', apikey.auth, courses.modules);
-	app.get('/v1/courses/:id/users', apikey.auth, courses.users);
+	app.get('/v1/courses/:id/students', apikey.auth, courses.students);
 
 	// modules
 	app.get('/v1/modules/', modules.index);
@@ -40,18 +40,18 @@ module.exports = function (app, express) {
 	app.get('/v1/modules/:id/edit', modules.edit);
 	app.put('/v1/modules/:id', modules.update);
 	app.delete('/v1/modules/:id', modules.destroy);
-	//app.get('/courses/:id/users', courses.getUsers);
+	//app.get('/courses/:id/students', courses.getstudents);
 
-	// users
-	app.get('/v1/users/', users.index);
-	app.get('/v1/users/new', users.new);
-	app.post('/v1/users/', users.create);
-	app.get('/v1/users/:id', users.show);
-	app.get('/v1/users/:id/edit', users.edit);
-	app.put('/v1/users/:id', users.update);
-	app.delete('/v1/users/:id', users.destroy);
-	app.get('/v1/users/:id/courses', users.courses);
-	app.get('/v1/users/:id/modules', users.modules);
+	// students
+	app.get('/v1/students/', students.index);
+	app.get('/v1/students/new', students.new);
+	app.post('/v1/students/', students.create);
+	app.get('/v1/students/:id', students.show);
+	app.get('/v1/students/:id/edit', students.edit);
+	app.put('/v1/students/:id', students.update);
+	app.delete('/v1/students/:id', students.destroy);
+	app.get('/v1/students/:id/courses', students.courses);
+	app.get('/v1/students/:id/modules', students.modules);
 
 	// oauth
 	/* app.get('/v1/auth/twitter', passport.authenticate('twitter'));

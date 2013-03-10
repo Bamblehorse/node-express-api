@@ -12,7 +12,7 @@ var ModuleSchema = new Schema({
     id: ObjectId,
     name: { type: String, required: true, validate: nameValidator },
     code: { type: String, required: true, unique: true, validate: codeValidator },
-    courses: { type: Array, required: true, validate: coursesValidator },
+    courses: { type: Array, required: true },
     stage: { type: Number, required: true, validate: stageValidator }
 });
 

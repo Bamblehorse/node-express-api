@@ -3,7 +3,7 @@ var mongoose = require('mongoose'),
 	apikey = require('../controllers/APIKeyController.js'),
 	Model = mongoose.model('Course'),
 	Module = mongoose.model('Module'),
-	User = mongoose.model('User'),
+	Student = mongoose.model('Student'),
 	//passport = require('passport'),
 	check = require('validator').check,
 	sanitize = require('validator').sanitize;
@@ -203,7 +203,7 @@ exports.modules = function (req, res) {
 }
 
 // users with courseid
-exports.users = function (req, res) {
+exports.students = function (req, res) {
 	try {
 		check(req.params.id, 'Please enter a valid ID').len(24);
 	} catch (e) {
