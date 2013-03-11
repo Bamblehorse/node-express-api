@@ -28,7 +28,7 @@
 
 	<h3>Authentication</h3>
 	<p>The API will only accept requests from authenticated users, this means you <b>always</b> need to supply an apikey parameter.</p>
-	<div class="well">/courses/5133b2b8257e63484a000001<b>?apikey=6403cc12ebaf45056ab3e924fce62064851de819</b></div>
+	<div class="well">/courses/513d8417fc06690200000001<b>?apikey=6403cc12ebaf45056ab3e924fce62064851de819</b></div>
 	<hr />
 
 	<!-- API Design Overview -->
@@ -305,7 +305,7 @@
 	<div class="testable">
 
 		<h5>Associated Modules</h5>
-		<div class="well url">/courses/5133b2b8257e63484a000001<b>/modules</b>?apikey=6403cc12ebaf45056ab3e924fce62064851de819</div>
+		<div class="well url">/courses/513d8417fc06690200000001<b>/modules</b>?apikey=6403cc12ebaf45056ab3e924fce62064851de819</div>
 
 		<button type="button" class="go">See Result</button>
 
@@ -324,7 +324,7 @@
 	<div class="testable">
 
 		<h5>Associated Users</h5>
-		<div class="well url">/courses/5133b2b8257e63484a000001<b>/users</b>?apikey=6403cc12ebaf45056ab3e924fce62064851de819</div>
+		<div class="well url">/courses/513d8417fc06690200000001<b>/users</b>?apikey=6403cc12ebaf45056ab3e924fce62064851de819</div>
 
 		<button type="button" class="go">See Result</button>
 
@@ -347,7 +347,7 @@
 
 	<div class="testable">
 
-		<div class="well url" contenteditable>/courses/?<b>limit=2</b>&amp;<b>offset=1</b>&amp;apikey=6403cc12ebaf45056ab3e924fce62064851de819</div>
+		<div class="well url">/courses/?<b>limit=2</b>&amp;<b>offset=1</b>&amp;apikey=6403cc12ebaf45056ab3e924fce62064851de819</div>
 
 		<button type="button" class="go">See Result</button>
 
@@ -404,7 +404,7 @@ Message: Lookup was successful however it did not return any data.
 	<div class="testable">
 
 		<h2>Example Request</h2>
-		<div class="well url">/courses/5133b2b8257e63484a000001?apikey=6403cc12ebaf45056ab3e924fce62064851de819&amp;fields=name,school,code</div>
+		<div class="well url">/courses/513d8417fc06690200000001?apikey=6403cc12ebaf45056ab3e924fce62064851de819&amp;fields=name,school,code</div>
 
 		<button type="button" class="go">See Result</button>
 		
@@ -423,7 +423,7 @@ Message: Lookup was successful however it did not return any data.
 	<div class="testable">
 
 		<h2>Example Error</h2>
-		<div class="well url">/courses/5133b2b8257e63484a000002?apikey=6403cc12ebaf45056ab3e924fce62064851de819</div>
+		<div class="well url">/courses/513d8417fc06690200000001?apikey=6403cc12ebaf45056ab3e924fce62064851de819</div>
 
 		<button type="button" class="go">See Result</button>
 		
@@ -438,43 +438,6 @@ Message: Lookup was successful however it did not return any data.
 		</div>
 
 	</div>
-
-<!-- 
-
-	<ul>
-	<li>GET 	/courses/ 				courses.index</li>
-	<li>GET 	/courses/new 			courses.new -> new view</li>
-	<li>POST 	/courses/				courses.create</li>
-	<li>GET 	/courses/:id 			courses.show</li>
-	<li>GET 	/courses/:id/edit		courses.edit -> edit view</li>
-	<li>PUT 	/courses/:id 			courses.update</li>
-	<li>DELETE 	/courses/:id 			courses.destroy</li>
-	<li>GET 	/courses/:id/users/		courses.users</li>
-	<li>GET 	/courses/:id/modules/	courses.modules</li>
-	</ul>
-
-	<ul>
-	<li>GET 	/modules/ 				modules.index</li>
-	<li>GET 	/modules/new 			modules.new -> new view</li>
-	<li>POST 	/modules/				modules.create</li>
-	<li>GET 	/modules/:id 			modules.show</li>
-	<li>GET 	/modules/:id/edit		modules.edit -> edit view</li>
-	<li>PUT 	/modules/:id 			modules.update</li>
-	<li>DELETE 	/modules/:id 			modules.destroy</li>
-	<li>GET 	/modules/:id/users 		modules.users</li>
-	</ul>
-
-	<ul>
-	<li>GET 	/users/ 				users.index</li>
-	<li>GET 	/users/new 				users.new -> new view</li>
-	<li>POST 	/users/					users.create</li>
-	<li>GET 	/users/:id 				users.show</li>
-	<li>GET 	/users/:id/edit			users.edit -> edit view</li>
-	<li>PUT 	/users/:id 				users.update</li>
-	<li>DELETE 	/users/:id 				users.destroy</li>
-	</ul>
-
-	-->
 
 <script>
 
