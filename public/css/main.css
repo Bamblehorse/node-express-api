@@ -20,3 +20,8 @@
 	display: block;
 	text-align: center;
 }
+
+h3 a,
+h3 a:hover {
+	color: #000;
+}

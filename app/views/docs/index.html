@@ -3,19 +3,20 @@
 	<!-- <a href="/auth/twitter" class="btn btn-primary btn-medium">Authenticate with Twitter</a>
 	<br /> -->
 	<ul class="contents">
-		<li><a href="">Generating an API &amp; Authentication</a></li>
-		<li><a href="">API Design Overview</a></li>
-		<li><a href="">Methods</a></li>
-		<li><a href="">Rate Limiting</a></li>
-		<li><a href="">Associations</a></li>
-		<li><a href="">Pagination</a></li>
-		<li><a href="">Selecting fields</a></li>
-		<li><a href="">Helpful Errors</a></li>
-		<li><a href="">Example Request</a></li>
-		<li><a href="">Example Error</a></li>
+		<li><a href="#apiauth">Generating an API &amp; Authentication</a></li>
+		<li><a href="#design">API Design Overview</a></li>
+		<li><a href="#resources">API Resources</a></li>
+		<li><a href="#ratelimit">Rate Limiting</a></li>
+		<li><a href="#associations">Associations</a></li>
+		<li><a href="#pagination">Pagination</a></li>
+		<li><a href="#selectfields">Selecting fields</a></li>
+		<li><a href="#errors">Helpful Errors</a></li>
+		<li><a href="#examplerequest">Example Request</a></li>
+		<li><a href="#exampleerror">Example Error</a></li>
+		<li><a href="#contact">Contact</a></li>
 	</ul>
 
-	<h4>Generate API Key</h4>
+	<h3><a name="apiauth">Generate API Key</a></h3>
 	<form id="genAPIKey" method="POST" action="/apikey">
 		<input type="email" name="email" placeholder="Email Address" />
 		<button id="submit" type="submit" class="btn btn-medium btn-primary">Generate</button>
@@ -33,7 +34,7 @@
 
 	<!-- API Design Overview -->
 
-	<h3>API Design Overview</h3>
+	<h3><a name="design">API Design Overview</a></h3>
 	<p>Here is a table demonstrating the overall design of the API, resources are interchangeable.</p>
 
 	<table class="table table-hover table-bordered">
@@ -79,7 +80,7 @@
 	<hr />
 
 	<!-- API Resources -->
-	<h2>API Resources</h2>
+	<h3><a name="resources">API Resources</a></h3>
 
 	<h4>Courses</h4>
 	<p>Courses are an individual course that a student may be linked to, they also contain multiple modules. Parameters in bold are <b>mandatory</b>.</p>
@@ -294,12 +295,12 @@
 	</table>
 
 	<hr />
-	<h3>Rate Limiting</h3>
+	<h3><a name="ratelimit">Rate Limiting</a></h3>
 	<p>Rate limits do apply to this API and are globally set to <b>100</b> requests every <b>60</b> minutes. Please do not exceed this.</p>
 
 	<hr />
 
-	<h3>Associations</h3>
+	<h3><a name="associations">Associations</a></h3>
 	<p>Associations are resources which are contextually linked together. The API allows you to easily select associations without having to do the work. This is part of the API's Virtualization Layer and simply acts as a shortcut for only GET requests. POST/PUT/DELETE to these resources will return an error.</p>
 
 	<div class="testable">
@@ -342,7 +343,7 @@
 
 	<hr />
 
-	<h3>Pagination</h3>
+	<h3><a name="pagination">Pagination</a></h3>
 	<p>Pagination enables you you specify both the <b>limit</b> and <b>offset</b> of the content you would like to consume.</p>
 
 	<div class="testable">
@@ -365,7 +366,7 @@
 
 	<hr />
 
-	<h3>Select fields</h3>
+	<h3><a name="selectfields">Select fields</a></h3>
 	<p>GET what you want. The API allows you to explicitly specify which fields you would like returned. <b>Please note _id is always included.</b></p>
 
 	<div class="testable">
@@ -388,7 +389,7 @@
 
 	<hr />
 
-	<h3>Helpful Errors</h3>
+	<h3><a name="errors">Helpful Errors</a></h3>
 	<p>Don't you just hate ambigious error messages? Each error sent by the API will have a complete Code, Message and also a more_info URL. Navigating to the more_info will provide you with an extensive description and possible quick ways to fix your problem.</p>
 
 	<pre>
@@ -403,7 +404,7 @@ Message: Lookup was successful however it did not return any data.
 
 	<div class="testable">
 
-		<h2>Example Request</h2>
+		<h2><a name="examplerequest">Example Request</a></h2>
 		<div class="well url">/courses/513d8417fc06690200000001?apikey=6403cc12ebaf45056ab3e924fce62064851de819&amp;fields=name,school,code</div>
 
 		<button type="button" class="go">See Result</button>
@@ -422,7 +423,7 @@ Message: Lookup was successful however it did not return any data.
 
 	<div class="testable">
 
-		<h2>Example Error</h2>
+		<h2><a name="exampleerror">Example Error</a></h2>
 		<div class="well url">/courses/513d8417fc06690200000001?apikey=6403cc12ebaf45056ab3e924fce62064851de819</div>
 
 		<button type="button" class="go">See Result</button>
@@ -438,6 +439,9 @@ Message: Lookup was successful however it did not return any data.
 		</div>
 
 	</div>
+
+	<h3><a name="contact">Contact</a></h3>
+	<p>Should you wish to contact me for any reason please feel free to email me at <code>adam@asheridan.co.uk</code>. 
 
 <script>
 
