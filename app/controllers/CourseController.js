@@ -15,7 +15,7 @@ exports.index = function (req, res) {
 
 	//utils.getQueryParams(req);
 
-	Model.find({}, utils.getFields(req.query), function(err, docs){
+	Model.find({}, utils.getFields(req.query.fields), utils.getPagination(req.query.offset, req.query.limit), function(err, docs){
 
 		if (docs.length === 0) { 
 			utils.handleErrors({ name: 'NoContent' }, res) 
@@ -70,7 +70,7 @@ exports.show = function (req, res) {
 		return false;
 	} 
 
-	Model.find({ _id: req.params.id }, utils.getFields(req.query), function(err, docs){
+	Model.find({ _id: req.params.id }, utils.getFields(req.query.fields), function(err, docs){
 		if (err) { 
 			console.log(err);
 			utils.handleErrors(err, res);
@@ -186,14 +186,13 @@ exports.modules = function (req, res) {
 
 	var courseid = req.params.id;
 
-	Module.find({ courses:courseid }, utils.getFields(req.query), function(err, docs){
+	Module.find({ courses:courseid }, utils.getFields(req.query.fields), function(err, docs){
 		if (err) { 
 			console.log(err);
 			utils.handleErrors(err, res);
 		} else if (docs.length === 0){
 			utils.handleErrors({ name: 'NoContent' }, res);
 		} else {
-			console.log(docs);
 			res.writeHead(200, 'OK', {
 				"Content-Type": "application/json"
 			});
@@ -218,14 +217,13 @@ exports.students = function (req, res) {
 
 	var courseid = req.params.id;
 
-	Student.find({ courseid:courseid }, utils.getFields(req.query), function(err, docs){
+	Student.find({ courseid:courseid }, utils.getFields(req.query.fields), function(err, docs){
 		if (err) { 
 			console.log(err);
 			utils.handleErrors(err, res);
 		} else if (docs.length === 0){
 			utils.handleErrors({ name: 'NoContent' }, res);
 		} else {
-			console.log(docs);
 			res.writeHead(200, 'OK', {
 				"Content-Type": "application/json"
 			});

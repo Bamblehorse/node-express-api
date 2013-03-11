@@ -29,6 +29,32 @@ exports.handleErrors = function(err, res){
 			res.end(JSON.stringify(err));
 		break;
 
+		case 'MongoError':
+			var ss = err.err.substring(0,6);
+			delete err.message;
+			
+			if (ss === 'E11000') {
+				err.message = 'MongoDB Duplicate Key Error';
+				err.code = 400;
+				err.more_info = errorUrl+err.code;
+				delete err.err;
+				res.writeHead(err.code, err, {
+					"Content-Type": "text/html"
+				});
+				res.end(JSON.stringify(err));
+			} else {
+				err.message = 'Internal Server Error';
+				err.code = 500;
+				err.more_info = errorUrl+err.code;
+				delete err.err;
+				res.writeHead(err.code, err, {
+					"Content-Type": "text/html"
+				});
+				res.end(JSON.stringify(err));
+			}
+		
+		break;
+
 		case 'NoContent':
 			err.message = 'Lookup was successful however it did not return any data.';
 			err.code = 204;
@@ -52,7 +78,7 @@ exports.handleErrors = function(err, res){
 		break;
 
 		case 'TooManyRequests':
-			err.message = 'Rate limit exausted for your API key.';
+			err.message = 'Rate limit exausted. Chill out.';
 			err.code = 429;
 			err.more_info = errorUrl+err.code;
 			console.log(err);
@@ -65,11 +91,22 @@ exports.handleErrors = function(err, res){
 
 }
 
-exports.getFields = function (query) {
+exports.getFields = function (fields) {
 
-	console.log('getFields');
+	if (!fields) {
+		var fields = { __v: 0 }
+		return fields;	
+	} else {
+		var s = fields.split(','),
+			fields = {}; //default 
+		for (var i = 0; i < s.length; i++) {
+			var key = s[i];
+			fields[key] = 1;
+		}
+		return fields;
+	}
 	
-	function objEmpty(obj) {
+	/* function objEmpty(obj) {
 		//console.log('obj is', obj);
 		return (Object.getOwnPropertyNames(obj).length === 0);
 	}
@@ -88,24 +125,17 @@ exports.getFields = function (query) {
 			console.log('no fields supplied');
 		}
 	} else {
-		var fields = { __v: 0 }
-		return fields;
-	}
+		
+	} */
 }
 
 exports.prepJSON = function (data){
-	return JSON.stringify(data);
+	return JSON.stringify(data, undefined, 2);
 }
 
-exports.getQueryParams = function (req){
-	function objEmpty(obj) {
-		//console.log('obj is', obj);
-		return (Object.getOwnPropertyNames(obj).length === 0);
-	}
-	
-	if (!objEmpty(req.query)) {
-		console.log(req.query);
-	} else {
-		return false;
-	}
+exports.getPagination = function (offset, limit) {
+	var obj = {};
+	obj.skip = offset || 0;
+	obj.limit = limit || 20;
+	return obj;
 }

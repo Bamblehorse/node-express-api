@@ -6,6 +6,7 @@
 		<li><a href="">Generating an API &amp; Authentication</a></li>
 		<li><a href="">API Design Overview</a></li>
 		<li><a href="">Methods</a></li>
+		<li><a href="">Rate Limiting</a></li>
 		<li><a href="">Associations</a></li>
 		<li><a href="">Pagination</a></li>
 		<li><a href="">Selecting fields</a></li>
@@ -13,8 +14,6 @@
 		<li><a href="">Example Request</a></li>
 		<li><a href="">Example Error</a></li>
 	</ul>
-
-	<h2>Step 1</h2>
 
 	<h4>Generate API Key</h4>
 	<form id="genAPIKey" method="POST" action="/apikey">
@@ -36,6 +35,7 @@
 
 	<h3>API Design Overview</h3>
 	<p>Here is a table demonstrating the overall design of the API, resources are interchangeable.</p>
+
 	<table class="table table-hover table-bordered">
 
 		<thead>
@@ -53,8 +53,8 @@
 				<td>/courses/</td>
 				<td>Display all Courses</td>
 				<td>Create a new Course</td>
-				<td>Bulk Update all Courses</td>
-				<td>Delete all Courses</td>
+				<td>Error</td>
+				<td>Error</td>
 			</tr>
 
 			<tr>
@@ -68,7 +68,7 @@
 			<tr>
 				<td>/courses/:id/modules/</td>
 				<td>Show Modules associated with Course</td>
-				<td>Create new Module with Course ID automatically associated</td>
+				<td>Error</td>
 				<td>Error</td>
 				<td>Error</td>
 			</tr>
@@ -111,26 +111,6 @@
 						<li>level (string)</li>
 					</ul>
 				</td>
-			</tr>
-			<tr>
-				<td>PUT /courses/</td>
-				<td>Bulk Update Courses</td>
-				<td><b>apikey</b></td>
-				<td>
-					<ul>
-						<li>name (string)</li>
-						<li>code (number)</li>
-						<li>faculty (string)</li>
-						<li>school (string)</li>
-						<li>level (string)</li>
-					</ul>
-				</td>
-			</tr>
-			<tr>
-				<td>DELETE /courses/</td>
-				<td>Deletes all Courses</td>
-				<td><b>apikey</b></td>
-				<td></td>
 			</tr>
 			<tr>
 				<td>GET /courses/:id</td>
@@ -204,25 +184,6 @@
 				</td>
 			</tr>
 			<tr>
-				<td>PUT /modules/</td>
-				<td>Bulk Update Modules</td>
-				<td><b>apikey</b></td>
-				<td>
-					<ul>
-						<li>name (string)</li>
-						<li>code (string)</li>
-						<li>stage (number)</li>
-						<li>courses (array)</li>
-					</ul>
-				</td>
-			</tr>
-			<tr>
-				<td>DELETE /modules/</td>
-				<td>Deletes all Modules</td>
-				<td><b>apikey</b></td>
-				<td></td>
-			</tr>
-			<tr>
 				<td>GET /modules/:id</td>
 				<td>Returns single Module</td>
 				<td><b>apikey</b>, fields, limit, offset</td>
@@ -263,7 +224,7 @@
 	</table>
 
 	<h4>Students</h4>
-	<p>Students are associated with their courseid's modules on their current Stage.<b>API Keys are not associated with Students for security reasons.</b> Parameters in bold are <b>mandatory</b>.</p>
+	<p>Students are associated with their courseid's modules on their current Stage. <b>API Keys are not associated with Students.</b> Parameters in bold are <b>mandatory</b>.</p>
 	
 	<table class="table table-hover">
 		<thead>
@@ -291,25 +252,6 @@
 						<li>courseid (string)</li>
 					</ul>
 				</td>
-			</tr>
-			<tr>
-				<td>PUT /students/</td>
-				<td>Bulk Update Students</td>
-				<td><b>apikey</b></td>
-				<td>
-					<ul>
-						<li>name (string)</li>
-						<li>username (string)</li>
-						<li>stage (number)</li>
-						<li>courseid (string)</li>
-					</ul>
-				</td>
-			</tr>
-			<tr>
-				<td>DELETE /students/</td>
-				<td>Deletes all Students</td>
-				<td><b>apikey</b></td>
-				<td></td>
 			</tr>
 			<tr>
 				<td>GET /students/:id</td>
@@ -352,14 +294,18 @@
 	</table>
 
 	<hr />
+	<h3>Rate Limiting</h3>
+	<p>Rate limits do apply to this API and are globally set to <b>100</b> requests every <b>60</b> minutes. Please do not exceed this.</p>
+
+	<hr />
 
 	<h3>Associations</h3>
-	<p>Associations are resources which are contextually linked together. The API allows you to easily select associations without having to do the work. This is part of the API's Virtualization Layer and simply acts as a shortcut for GET requests, POST/PUT/DELETE to these resources will return an error.</p>
+	<p>Associations are resources which are contextually linked together. The API allows you to easily select associations without having to do the work. This is part of the API's Virtualization Layer and simply acts as a shortcut for only GET requests. POST/PUT/DELETE to these resources will return an error.</p>
 
 	<div class="testable">
 
 		<h5>Associated Modules</h5>
-		<div class="well url">/courses/5133b2b8257e63484a000001<b>/modules</b></div>
+		<div class="well url">/courses/5133b2b8257e63484a000001<b>/modules</b>?apikey=6403cc12ebaf45056ab3e924fce62064851de819</div>
 
 		<button type="button" class="go">See Result</button>
 
@@ -378,7 +324,30 @@
 	<div class="testable">
 
 		<h5>Associated Users</h5>
-		<div class="well url">/courses/5133b2b8257e63484a000001<b>/users</b></div>
+		<div class="well url">/courses/5133b2b8257e63484a000001<b>/users</b>?apikey=6403cc12ebaf45056ab3e924fce62064851de819</div>
+
+		<button type="button" class="go">See Result</button>
+
+		<div class="result hide">
+
+			<h4>Headers</h4>
+			<pre class="headers"></pre>
+
+			<h4>Output</h4>
+			<pre class="output"></pre>
+
+		</div>
+
+	</div>
+
+	<hr />
+
+	<h3>Pagination</h3>
+	<p>Pagination enables you you specify both the <b>limit</b> and <b>offset</b> of the content you would like to consume.</p>
+
+	<div class="testable">
+
+		<div class="well url" contenteditable>/courses/?<b>limit=2</b>&amp;<b>offset=1</b>&amp;apikey=6403cc12ebaf45056ab3e924fce62064851de819</div>
 
 		<button type="button" class="go">See Result</button>
 
@@ -397,13 +366,40 @@
 	<hr />
 
 	<h3>Select fields</h3>
-	<p>Get what you want. The API allows you to explicitly specify which fields you would like returned. Please note _id is always included.</p>
-	<div class="well">/courses/5133b2b8257e63484a000001<b>?fields=name,school,code</b></div>
+	<p>GET what you want. The API allows you to explicitly specify which fields you would like returned. <b>Please note _id is always included.</b></p>
+
+	<div class="testable">
+
+		<div class="well url">/courses/?<b>fields=name,school</b>&amp;apikey=6403cc12ebaf45056ab3e924fce62064851de819</div>
+
+		<button type="button" class="go">See Result</button>
+
+		<div class="result hide">
+
+			<h4>Headers</h4>
+			<pre class="headers"></pre>
+
+			<h4>Output</h4>
+			<pre class="output"></pre>
+
+		</div>
+
+	</div>
 
 	<hr />
 
 	<h3>Helpful Errors</h3>
-	<p>Don't you just hate ambigious error messages? Each error sent by the API will have a complete Code, Message and also a more_info URL. Navigating to the more_info will provide you with an extensive description and possibly quick ways to fix your problem.</p>
+	<p>Don't you just hate ambigious error messages? Each error sent by the API will have a complete Code, Message and also a more_info URL. Navigating to the more_info will provide you with an extensive description and possible quick ways to fix your problem.</p>
+
+	<pre>
+More_info: <b>http://soft338.heroku.com/v1/docs/errors/204</b>
+Code: 204
+Date: Sun, 10 Mar 2013 21:36:55 GMT
+Connection: keep-alive
+Name: NoContent
+X-Powered-By: Express
+Message: Lookup was successful however it did not return any data.
+	</pre>
 
 	<div class="testable">
 
@@ -427,7 +423,7 @@
 	<div class="testable">
 
 		<h2>Example Error</h2>
-		<div class="well url">/courses/5133b2b8257e63484a000002</div>
+		<div class="well url">/courses/5133b2b8257e63484a000002?apikey=6403cc12ebaf45056ab3e924fce62064851de819</div>
 
 		<button type="button" class="go">See Result</button>
 		

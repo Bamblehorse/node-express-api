@@ -57,7 +57,7 @@ exports.show = function (req, res) {
 		return false;
 	} 
 
-	Model.find({ _id: req.params.id }, utils.getFields(req.query), function(err, docs){
+	Model.find({ _id: req.params.id }, utils.getFields(req.query.fields), function(err, docs){
 		if (docs.length === 0) { 
 			utils.handleErrors({ name: 'NoContent' }, res) 
 		} else {
