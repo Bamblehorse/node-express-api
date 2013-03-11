@@ -1,0 +1,22 @@
+.result {
+	overflow: hidden;
+}
+
+.result.hide {
+	height: 1px;
+}
+
+.result.show {
+	height: auto;
+}
+
+#logo {
+	display: block;
+	margin: 0 auto;
+	width: 150px;
+}
+
+#title {
+	display: block;
+	text-align: center;
+}

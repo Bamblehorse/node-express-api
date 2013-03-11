@@ -53,7 +53,7 @@ exports.show = function (req, res) {
 		res.writeHead(200, 'OK', {
 			"Content-Type": "application/json"
 		});
-		res.end(Jutils.prepJSON(e));
+		res.end(utils.prepJSON(e));
 		return false;
 	} 
 
@@ -62,7 +62,8 @@ exports.show = function (req, res) {
 			utils.handleErrors({ name: 'NoContent' }, res) 
 		} else {
 			res.writeHead(200, 'OK', {
-			"Content-Type": "application/json"
+			"Content-Type": "application/json",
+			"Access-Control-Allow-Origin": "*"
 			});
 			res.end(utils.prepJSON(docs));
 		}
