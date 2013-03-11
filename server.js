@@ -22,6 +22,7 @@ app.configure(function(){
     app.use('/js', express.static(__dirname + '/public/js'));
     app.use('/fonts', express.static(__dirname + '/public/fonts'));
     app.use('/demo', express.static(__dirname + '/demo/'));
+    app.use('/downloads/', express.static(__dirname + '/public/downloads/'));
 
     console.log('views: ', app.get('views'));
 

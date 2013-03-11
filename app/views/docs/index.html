@@ -1,5 +1,10 @@
 {{>_header}}
 
+
+	<a href="/demo" class="btn btn-prmiary btn-large">Demo App</a>
+	<a href="/downloads/SOFT338.rar" class="btn btn-prmiary btn-large">Download Application</a>
+	<br /><br />
+
 	<!-- <a href="/auth/twitter" class="btn btn-primary btn-medium">Authenticate with Twitter</a>
 	<br /> -->
 	<ul class="contents">
@@ -302,7 +307,7 @@
 	<hr />
 
 	<h3><a name="associations">Associations</a></h3>
-	<p>Associations are resources which are contextually linked together. The API allows you to easily select associations without having to do the work. This is part of the API's Virtualization Layer and simply acts as a shortcut for only GET requests. POST/PUT/DELETE to these resources will return an error.</p>
+	<p>Associations are resources which are contextually linked together. The API allows you to easily select associations without you having to do the work. This is part of the API's Virtualization Layer and simply acts as a shortcut for only GET requests. POST/PUT/DELETE to these resources will return an error.</p>
 
 	<div class="testable">
 
@@ -392,6 +397,13 @@
 
 	<h3><a name="errors">Helpful Errors</a></h3>
 	<p>Don't you just hate ambigious error messages? Each error sent by the API will have a complete Code, Message and also a more_info URL. Navigating to the more_info will provide you with an extensive description and possible quick ways to fix your problem.</p>
+	<ul>
+		<li><a href="http://soft338.heroku.com/v1/docs/errors/204">http://soft338.heroku.com/v1/docs/errors/204</a></li>
+		<li><a href="http://soft338.heroku.com/v1/docs/errors/400">http://soft338.heroku.com/v1/docs/errors/400</a></li>
+		<li><a href="http://soft338.heroku.com/v1/docs/errors/401">http://soft338.heroku.com/v1/docs/errors/401</a></li>
+		<li><a href="http://soft338.heroku.com/v1/docs/errors/429">http://soft338.heroku.com/v1/docs/errors/429</a></li>
+		<li><a href="http://soft338.heroku.com/v1/docs/errors/500">http://soft338.heroku.com/v1/docs/errors/500</a></li>
+	</ul>
 
 	<pre>
 More_info: <b>http://soft338.heroku.com/v1/docs/errors/204</b>
