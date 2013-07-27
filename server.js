@@ -3,7 +3,6 @@ var express = require('express'),
 	mongoose = require('mongoose'),
 	fs = require('fs'),
 	hbs = require('hbs');
-  //passport = require('passport');
 
 // init app
 var app = express();
@@ -45,10 +44,7 @@ var uristring =
   process.env.MONGODB_URI || 
   process.env.MONGOLAB_URI || 
   'mongodb://localhost/SOFT338';
-/*
-// Ensure safe writes
-var mongoOptions = { user: "heroku_app11371005", account: "heroku_app11371005" ,db: { safe: true }};
-*/
+
 // Connect
 mongoose.connect(uristring, {}, function (err, db) {
   if (err) {
@@ -57,9 +53,6 @@ mongoose.connect(uristring, {}, function (err, db) {
     console.log('Success connecting to database');
   }
 });
-
-// start connection to database
-//mongoose.connect('mongodb://localhost/SOFT338');
 
 //start application
 var port = process.env.PORT || 3000;
