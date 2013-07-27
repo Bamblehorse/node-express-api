@@ -1,1 +1,6 @@
+.procfile
+Procfile
 node_modules
+SOFT338.sublime-project
+SOFT338.sublime-workspace
+backup.json
